@@ -1,3 +1,9 @@
+<?php
+    // function base_url(){
+    //     echo "http://localhost/gopalan_system/gopalan_school_system/public/"; 
+    // }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +25,7 @@
                 <li class="nav__list"><a href="" class="nav__link">insert teacher record</a></li>
                 <li class="nav__list"><a href="" class="nav__link">profile</a></li>
                 <li class="nav__list"><a href="" class="nav__link"></a></li>
-                <li class="nav__list"><a href="" class="nav__link">log out</a></li>
+                <li class="nav__list"><a href="http://localhost/gopalan_system/gopalan_school_system/public/logout.php" class="nav__link">log out</a></li>
             </ul>
         </nav>
     </div>
