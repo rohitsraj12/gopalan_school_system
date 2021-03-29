@@ -1,12 +1,11 @@
 
 <?php
-
-include('../private/config/db_connection/bd_connect.php');
+    include('../private\config\db_connection\db_connect.php');
 
     if(isset($_POST['submit'])){
         $email = $_POST['email'];
         $pass = $_POST['password'];
-        $status = '1';
+        $status = '1'; 
 
         // echo $email . " ". $pass . " " . $status;
 
@@ -18,12 +17,7 @@ include('../private/config/db_connection/bd_connect.php');
         } else {
             echo "success";
         }
-
     }
-
-
-    
-
 ?>
 
 
@@ -71,21 +65,26 @@ include('../private/config/db_connection/bd_connect.php');
                                     <form action="" method="POST">
 
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">Email address</label>
-                                            <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                                            <label for="id">Gopalan ID Number</label>
+                                            <input type="text" class="form-control" name="email" id="id" aria-describedby="emailHelp" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Password</label>
-                                            <input type="password" class="form-control" name="password"  id="exampleInputPassword1" required>
+                                            <label for="email">Email address</label>
+                                            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Re Enter Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword1">
+                                            <label for="password">Password</label>
+                                            <input type="password" class="form-control" name="password"  id="password" required>
                                         </div>
 
-                                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                        <div class="form-group">
+                                            <label for="re_password">Re Enter Password</label>
+                                            <input type="password" class="form-control" id="re_password">
+                                        </div>
+
+                                        <button type="submit" name="submit-register" class="btn btn-primary">Submit</button>
                                     
                                     </form>
                                 </div>
