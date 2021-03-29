@@ -3,16 +3,16 @@
 if(isset($_POST['login-admin'])){
     require_once '../../../private/config/db_connection/db_connect.php';
 
-    $mail_user_name = $_POST['email'];
+    $user_name = $_POST['email'];
     $password = $_POST['password'];
 
-    if(empty($mail_user_name) || empty($password)){
+    if(empty($user_name) || empty($password)){
 
         header("Location: ../../admin_admin_login.php?error=emptyfields");
         exit();
 
     } else {
-        $sql = "SELECT * FROM admin WHERE admin_name=? OR admin_email=?";
+        $sql = "SELECT * FROM admins WHERE emp_id=? OR emp_email=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -20,7 +20,7 @@ if(isset($_POST['login-admin'])){
             exit();
         } else {
 
-            mysqli_stmt_bind_param($stmt, "ss", $mail_user_name, $mail_user_name);
+            mysqli_stmt_bind_param($stmt, "ss", $user_name, $user_name);
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
 
