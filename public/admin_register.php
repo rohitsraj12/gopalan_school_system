@@ -1,26 +1,3 @@
-
-<?php
-    include('../private\config\db_connection\db_connect.php');
-
-    if(isset($_POST['submit'])){
-        $email = $_POST['email'];
-        $pass = $_POST['password'];
-        $status = '1'; 
-
-        // echo $email . " ". $pass . " " . $status;
-
-        $query = "INSERT INTO `admin`(`admin_email`, `password`, `status`) VALUES ('$email', '$pass', '$status')";
-        $result = mysqli_query($conn, $query);
-
-        if(!$result){
-            die('query failed');
-        } else {
-            echo "success";
-        }
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,11 +39,21 @@
                                 </header>
 
                                 <div class="form__body">
-                                    <form action="" method="POST">
+                                    <form action="include/admin.inc/register.inc.php" method="POST">
+
+                                        <div class="form-group">
+                                            <label for="first_name">First Name</label>
+                                            <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="emailHelp" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="last_name">Last Name</label>
+                                            <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="emailHelp" required>
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="id">Gopalan ID Number</label>
-                                            <input type="text" class="form-control" name="email" id="id" aria-describedby="emailHelp" required>
+                                            <input type="text" class="form-control" name="emp_id" id="id" aria-describedby="emailHelp" required>
                                         </div>
 
                                         <div class="form-group">
@@ -81,7 +68,7 @@
 
                                         <div class="form-group">
                                             <label for="re_password">Re Enter Password</label>
-                                            <input type="password" class="form-control" id="re_password">
+                                            <input type="password" class="form-control" name="re_password" id="re_password">
                                         </div>
 
                                         <button type="submit" name="submit-register" class="btn btn-primary">Submit</button>
