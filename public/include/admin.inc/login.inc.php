@@ -25,8 +25,8 @@ if(isset($_POST['login-admin'])){
             $result = mysqli_stmt_get_result($stmt);
 
             if($row = mysqli_fetch_assoc($result)){
-                // $password_check = password_verify($password, $row['student_password']);
-                $password_check = $row['password'];
+                $password_check = password_verify($password, $row['admin_password']);
+                // $password_check = $row['admin_password'];
 
                 if($password_check == false) {
                     
@@ -34,8 +34,8 @@ if(isset($_POST['login-admin'])){
                     exit();
                 } else if($password_check == true){
                     session_start();
-                    $_SESSION["user_id"] = $row['student_id'];
-                    $_SESSION["user_name"] = $row['student_user_name'];
+                    $_SESSION["id"] = $row['admin_id'];
+                    $_SESSION["emp_id"] = $row['emp_id'];
 
                     
                     header("Location: ../../admin/index.php");
