@@ -109,8 +109,8 @@
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url()?>admin/teacher/">View Teacher list</a></li>
-                        <li><a href="boxed.html">Create Teacher Profile</a></li>
+                        <li><a href="<?php base_url();?>admin/teacher/">View Teacher list</a></li>
+                        <li><a href="<?php base_url();?>admin/teacher/create_new_teacher.php">Create Teacher Profile</a></li>
                         <!-- <li><a href="boxed.html">Boxed</a></li> -->
                       </ul>
                     </li>
