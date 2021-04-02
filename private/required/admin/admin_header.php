@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	
-	<meta charset="utf-8">
+	<meta charset="utf-8">s
 	<meta name="description" content="Miminium Admin Template v.1">
 	<meta name="author" content="Isna Nur Azis">
 	<meta name="keyword" content="">
@@ -17,8 +17,20 @@
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/simple-line-icons.css"/>
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/animate.min.css"/>
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/fullcalendar.min.css"/>
-      <!-- table plugin -->    
-        <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/datatables.bootstrap.min.css"/>
+      
+      
+      <!-- start table plugin (teacher view)-->    
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/datatables.bootstrap.min.css"/>
+      <!-- end table plug in (teacher view) -->
+
+      <!-- start form page -->
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/nouislider.min.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/select2.min.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/ionrangeslider/ion.rangeSlider.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/ionrangeslider/ion.rangeSlider.skinFlat.css"/>
+      <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/bootstrap-material-datetimepicker.css"/>
+      <!-- end from page -->
+
 
 	<link href="<?php base_url()?>css/style.css" rel="stylesheet">
 	<!-- end: Css -->
