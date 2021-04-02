@@ -1,4 +1,6 @@
 <?php
+ // teacher list or all teacher record
+
     session_start();
 
     if(!isset($_SESSION["emp_id"])){
@@ -47,14 +49,58 @@
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Position</th>
-                          <th>Office</th>
-                          <th>Age</th>
-                          <th>Start date</th>
-                          <th>Salary</th>
+                          <th>School Name</th>
+                          <th>teacher Position</th>
+                          <th>Emp Id</th>
+                          <th>Edit Profile</th>
+                          <th>View Details</th>
                         </tr>
                       </thead>
-                      <tbody>
+                        <tbody>
+                        <?php 
+                          // $query = "SELECT * FROM teachers";
+
+                          // $query = "SELECT teachers.*, schools.*, teacher_positions.* FROM teachers
+                          //   JOIN schools
+                          //       ON schools.school_id = teachers.school_id
+                          //   JOIN teacher_positions
+                          //       ON teacher_positions.position_id = teachers.position_id";
+
+                            $query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
+                            JOIN schools
+                                ON schools.school_id = teachers.school_id
+                            JOIN teacher_positions
+                                ON teacher_positions.position_id = teachers.position_id
+                            JOIN class_rooms
+                                ON class_rooms.class_id = teachers.class_id
+                            JOIN class_sections
+                                ON class_sections.section_id = teachers.section_id";
+                            
+                            $result = mysqli_query($conn, $query);
+
+                            // $row_num = mysqli_num_rows($result);
+
+                            while($rows = mysqli_fetch_assoc($result)){
+                          ?>
+                            <tr>
+                              <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
+                              <td><?php echo $rows['school_name'];?></td>
+                              <td><?php echo $rows['position_name'];
+                                if($rows['position_name'] == "Class Teacher"){
+                                   echo " - Grade" . $rows['class_name']. " [section - " . $rows['section_name'] . "]";
+                                }
+                              
+                              ?></td>
+                              <td><?php echo $rows['emp_id'];?></td>
+                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">update profile</a></td>
+                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">view details</a></td>
+                            </tr>
+                          <?php
+                            }
+                          ?>
+                        </tbody>
+
+                      <!-- <tbody>
                         <tr>
                           <td>Tiger Nixon</td>
                           <td>System Architect</td>
@@ -511,7 +557,7 @@
                           <td>2011/01/25</td>
                           <td>$112,000</td>
                         </tr>
-                      </tbody>
+                      </tbody> -->
                         </table>
                       </div>
                   </div>
