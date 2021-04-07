@@ -1,5 +1,13 @@
 <?php
 
+/* ========================================
+
+    Teacher Login:
+    teacher can log in with emp ID only
+    
+
+===========================================*/ 
+
 if(isset($_POST['login-admin'])){
     require_once '../../../private/config/db_connection/db_connect.php';
 
