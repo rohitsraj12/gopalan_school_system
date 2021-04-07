@@ -1,5 +1,17 @@
 <?php
 
+
+/* ========================================
+
+    Admin/digital department Login:
+    Admin can log in with emp ID or email id
+    
+
+
+===========================================*/ 
+
+
+// login admin/degital department
 if(isset($_POST['login-admin'])){
     require_once '../../../private/config/db_connection/db_connect.php';
 
@@ -16,8 +28,10 @@ if(isset($_POST['login-admin'])){
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
+
             header("Location: ../../admin_login.php?error=Please%20enter%20valid%20username%20and%20password.");
             exit();
+            
         } else {
 
             mysqli_stmt_bind_param($stmt, "ss", $user_name, $user_name);
@@ -37,7 +51,6 @@ if(isset($_POST['login-admin'])){
                     $_SESSION["id"] = $row['admin_id'];
                     $_SESSION["emp_id"] = $row['emp_id'];
 
-                    
                     header("Location: ../../admin/index.php");
                     exit();
                 } else {
