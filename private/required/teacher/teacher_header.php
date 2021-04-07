@@ -18,7 +18,6 @@
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/animate.min.css"/>
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/fullcalendar.min.css"/>
       
-      
       <!-- start table plugin (teacher view)-->    
       <link rel="stylesheet" type="text/css" href="<?php base_url()?>css/plugins/datatables.bootstrap.min.css"/>
       <!-- end table plug in (teacher view) -->
@@ -56,9 +55,10 @@
                 <span class="middle"></span>
                 <span class="bottom"></span>
               </div>
-                <a href="index.html" class="navbar-brand"> 
-                 <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
-                </a>
+              
+              <a href="index.html" class="navbar-brand"> 
+                <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
+              </a>
 
               <ul class="nav navbar-nav search-nav">
                 <li>
@@ -121,13 +121,13 @@
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>dashboard/teacher/">View Students list</a></li>
+                        <li><a href="<?php base_url();?>dashboard/students/">View Students list</a></li>
 
                         <?php
 
                           if($row['position_id'] == "1"){
                             ?>
-                            <li><a href="<?php base_url();?>dashboard/teacher/create_new_teacher.php">Create Student Profile </a></li>
+                            <li><a href="<?php base_url();?>dashboard/students/create_new_student.php">Create Student Profiles</a></li>
                           <?php
                           }
 
