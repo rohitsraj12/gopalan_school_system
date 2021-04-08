@@ -12,7 +12,6 @@
     // include('include/school_name.php');
     include('../../../private/config/config.php');
 
-    
     $id = $_SESSION['emp_id'];
 
     $query = "SELECT * FROM teachers WHERE emp_id='$id'";
@@ -24,1174 +23,601 @@
     include('../../../private/required/teacher/teacher_header.php');
 ?>
 
-
-
-
-            <!-- start: Content -->
-            <div id="content">
-               <div class="panel box-shadow-none content-header">
-                  <div class="panel-body">
-                    <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Data Tables</h3>
-                        <p class="animated fadeInDown">
-                          Table <span class="fa-angle-right fa"></span> Data Tables
-                        </p>
-                    </div>
-                  </div>
-              </div>
-              <div class="col-md-12 top-20 padding-0">
+        <!-- start: Content -->
+        <div id="content">
+            <div class="panel box-shadow-none content-header">
+              <div class="panel-body">
                 <div class="col-md-12">
-                  <div class="panel">
-                    <div class="panel-heading"><h3>Data Tables</h3></div>
-                    <div class="panel-body">
-                      <div class="responsive-table">
-                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>School Name</th>
-                          <th>teacher Position</th>
-                          <th>Emp Id</th>
-                          <th>Edit Profile</th>
-                          <th>View Details</th>
-                        </tr>
-                      </thead>
-                        <tbody>
-                        <?php 
-                          // $query = "SELECT * FROM teachers";
 
-                          // $query = "SELECT teachers.*, schools.*, teacher_positions.* FROM teachers
-                          //   JOIN schools
-                          //       ON schools.school_id = teachers.school_id
-                          //   JOIN teacher_positions
-                          //       ON teacher_positions.position_id = teachers.position_id";
+                  <h3 class="animated fadeInLeft">Student Details</h3>
+                  
+                  <p class="animated fadeInDown">
+                    Table <span class="fa-angle-right fa"></span> Data Tables
+                  </p>
 
-                            $query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
-                            JOIN schools
-                                ON schools.school_id = teachers.school_id
-                            JOIN teacher_positions
-                                ON teacher_positions.position_id = teachers.position_id
-                            JOIN class_rooms
-                                ON class_rooms.class_id = teachers.class_id
-                            JOIN class_sections
-                                ON class_sections.section_id = teachers.section_id";
-                            
-                            $result = mysqli_query($conn, $query);
+                  <ul id="tabs-demo4" class="nav nav-tabs nav-tabs-v3" role="tablist">
 
-                            // $row_num = mysqli_num_rows($result);
+                    <?php
+                      $std_query = "SELECT * FROM class_rooms";
 
-                            while($rows = mysqli_fetch_assoc($result)){
-                          ?>
-                            <tr>
-                              <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
-                              <td><?php echo $rows['school_name'];?></td>
-                              <td><?php echo $rows['position_name'];
-                                if($rows['position_name'] == "Class Teacher"){
-                                   echo " - Grade" . $rows['class_name']. " [section - " . $rows['section_name'] . "]";
-                                }
-                              
-                              ?></td>
-                              <td><?php echo $rows['emp_id'];?></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">update profile</a></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">view details</a></td>
-                            </tr>
-                          <?php
-                            }
-                          ?>
-                        </tbody>
+                      // $std_query = "SELECT class_sections.*, class_rooms.* FROM class_sections
+                      //   JOIN class_rooms 
+                      //     ON class_rooms.class_id = class_sections.class_id";
 
-                      <!-- <tbody>
-                        <tr>
-                          <td>Tiger Nixon</td>
-                          <td>System Architect</td>
-                          <td>Edinburgh</td>
-                          <td>61</td>
-                          <td>2011/04/25</td>
-                          <td>$320,800</td>
-                        </tr>
-                        <tr>
-                          <td>Garrett Winters</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>63</td>
-                          <td>2011/07/25</td>
-                          <td>$170,750</td>
-                        </tr>
-                        <tr>
-                          <td>Ashton Cox</td>
-                          <td>Junior Technical Author</td>
-                          <td>San Francisco</td>
-                          <td>66</td>
-                          <td>2009/01/12</td>
-                          <td>$86,000</td>
-                        </tr>
-                        <tr>
-                          <td>Cedric Kelly</td>
-                          <td>Senior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>2012/03/29</td>
-                          <td>$433,060</td>
-                        </tr>
-                        <tr>
-                          <td>Airi Satou</td>
-                          <td>Accountant</td>
-                          <td>Tokyo</td>
-                          <td>33</td>
-                          <td>2008/11/28</td>
-                          <td>$162,700</td>
-                        </tr>
-                        <tr>
-                          <td>Brielle Williamson</td>
-                          <td>Integration Specialist</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2012/12/02</td>
-                          <td>$372,000</td>
-                        </tr>
-                        <tr>
-                          <td>Herrod Chandler</td>
-                          <td>Sales Assistant</td>
-                          <td>San Francisco</td>
-                          <td>59</td>
-                          <td>2012/08/06</td>
-                          <td>$137,500</td>
-                        </tr>
-                        <tr>
-                          <td>Rhona Davidson</td>
-                          <td>Integration Specialist</td>
-                          <td>Tokyo</td>
-                          <td>55</td>
-                          <td>2010/10/14</td>
-                          <td>$327,900</td>
-                        </tr>
-                        <tr>
-                          <td>Colleen Hurst</td>
-                          <td>Javascript Developer</td>
-                          <td>San Francisco</td>
-                          <td>39</td>
-                          <td>2009/09/15</td>
-                          <td>$205,500</td>
-                        </tr>
-                        <tr>
-                          <td>Sonya Frost</td>
-                          <td>Software Engineer</td>
-                          <td>Edinburgh</td>
-                          <td>23</td>
-                          <td>2008/12/13</td>
-                          <td>$103,600</td>
-                        </tr>
-                        <tr>
-                          <td>Jena Gaines</td>
-                          <td>Office Manager</td>
-                          <td>London</td>
-                          <td>30</td>
-                          <td>2008/12/19</td>
-                          <td>$90,560</td>
-                        </tr>
-                        <tr>
-                          <td>Quinn Flynn</td>
-                          <td>Support Lead</td>
-                          <td>Edinburgh</td>
-                          <td>22</td>
-                          <td>2013/03/03</td>
-                          <td>$342,000</td>
-                        </tr>
-                        <tr>
-                          <td>Charde Marshall</td>
-                          <td>Regional Director</td>
-                          <td>San Francisco</td>
-                          <td>36</td>
-                          <td>2008/10/16</td>
-                          <td>$470,600</td>
-                        </tr>
-                        <tr>
-                          <td>Haley Kennedy</td>
-                          <td>Senior Marketing Designer</td>
-                          <td>London</td>
-                          <td>43</td>
-                          <td>2012/12/18</td>
-                          <td>$313,500</td>
-                        </tr>
-                        <tr>
-                          <td>Tatyana Fitzpatrick</td>
-                          <td>Regional Director</td>
-                          <td>London</td>
-                          <td>19</td>
-                          <td>2010/03/17</td>
-                          <td>$385,750</td>
-                        </tr>
-                        <tr>
-                          <td>Michael Silva</td>
-                          <td>Marketing Designer</td>
-                          <td>London</td>
-                          <td>66</td>
-                          <td>2012/11/27</td>
-                          <td>$198,500</td>
-                        </tr>
-                        <tr>
-                          <td>Paul Byrd</td>
-                          <td>Chief Financial Officer (CFO)</td>
-                          <td>New York</td>
-                          <td>64</td>
-                          <td>2010/06/09</td>
-                          <td>$725,000</td>
-                        </tr>
-                        <tr>
-                          <td>Gloria Little</td>
-                          <td>Systems Administrator</td>
-                          <td>New York</td>
-                          <td>59</td>
-                          <td>2009/04/10</td>
-                          <td>$237,500</td>
-                        </tr>
-                        <tr>
-                          <td>Bradley Greer</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>41</td>
-                          <td>2012/10/13</td>
-                          <td>$132,000</td>
-                        </tr>
-                        <tr>
-                          <td>Dai Rios</td>
-                          <td>Personnel Lead</td>
-                          <td>Edinburgh</td>
-                          <td>35</td>
-                          <td>2012/09/26</td>
-                          <td>$217,500</td>
-                        </tr>
-                        <tr>
-                          <td>Jenette Caldwell</td>
-                          <td>Development Lead</td>
-                          <td>New York</td>
-                          <td>30</td>
-                          <td>2011/09/03</td>
-                          <td>$345,000</td>
-                        </tr>
-                        <tr>
-                          <td>Yuri Berry</td>
-                          <td>Chief Marketing Officer (CMO)</td>
-                          <td>New York</td>
-                          <td>40</td>
-                          <td>2009/06/25</td>
-                          <td>$675,000</td>
-                        </tr>
-                        <tr>
-                          <td>Caesar Vance</td>
-                          <td>Pre-Sales Support</td>
-                          <td>New York</td>
-                          <td>21</td>
-                          <td>2011/12/12</td>
-                          <td>$106,450</td>
-                        </tr>
-                        <tr>
-                          <td>Doris Wilder</td>
-                          <td>Sales Assistant</td>
-                          <td>Sidney</td>
-                          <td>23</td>
-                          <td>2010/09/20</td>
-                          <td>$85,600</td>
-                        </tr>
-                        <tr>
-                          <td>Angelica Ramos</td>
-                          <td>Chief Executive Officer (CEO)</td>
-                          <td>London</td>
-                          <td>47</td>
-                          <td>2009/10/09</td>
-                          <td>$1,200,000</td>
-                        </tr>
-                        <tr>
-                          <td>Gavin Joyce</td>
-                          <td>Developer</td>
-                          <td>Edinburgh</td>
-                          <td>42</td>
-                          <td>2010/12/22</td>
-                          <td>$92,575</td>
-                        </tr>
-                        <tr>
-                          <td>Jennifer Chang</td>
-                          <td>Regional Director</td>
-                          <td>Singapore</td>
-                          <td>28</td>
-                          <td>2010/11/14</td>
-                          <td>$357,650</td>
-                        </tr>
-                        <tr>
-                          <td>Brenden Wagner</td>
-                          <td>Software Engineer</td>
-                          <td>San Francisco</td>
-                          <td>28</td>
-                          <td>2011/06/07</td>
-                          <td>$206,850</td>
-                        </tr>
-                        <tr>
-                          <td>Fiona Green</td>
-                          <td>Chief Operating Officer (COO)</td>
-                          <td>San Francisco</td>
-                          <td>48</td>
-                          <td>2010/03/11</td>
-                          <td>$850,000</td>
-                        </tr>
-                        <tr>
-                          <td>Shou Itou</td>
-                          <td>Regional Marketing</td>
-                          <td>Tokyo</td>
-                          <td>20</td>
-                          <td>2011/08/14</td>
-                          <td>$163,000</td>
-                        </tr>
-                        <tr>
-                          <td>Michelle House</td>
-                          <td>Integration Specialist</td>
-                          <td>Sidney</td>
-                          <td>37</td>
-                          <td>2011/06/02</td>
-                          <td>$95,400</td>
-                        </tr>
-                        <tr>
-                          <td>Suki Burks</td>
-                          <td>Developer</td>
-                          <td>London</td>
-                          <td>53</td>
-                          <td>2009/10/22</td>
-                          <td>$114,500</td>
-                        </tr>
-                        <tr>
-                          <td>Prescott Bartlett</td>
-                          <td>Technical Author</td>
-                          <td>London</td>
-                          <td>27</td>
-                          <td>2011/05/07</td>
-                          <td>$145,000</td>
-                        </tr>
-                        <tr>
-                          <td>Gavin Cortez</td>
-                          <td>Team Leader</td>
-                          <td>San Francisco</td>
-                          <td>22</td>
-                          <td>2008/10/26</td>
-                          <td>$235,500</td>
-                        </tr>
-                        <tr>
-                          <td>Martena Mccray</td>
-                          <td>Post-Sales support</td>
-                          <td>Edinburgh</td>
-                          <td>46</td>
-                          <td>2011/03/09</td>
-                          <td>$324,050</td>
-                        </tr>
-                        <tr>
-                          <td>Unity Butler</td>
-                          <td>Marketing Designer</td>
-                          <td>San Francisco</td>
-                          <td>47</td>
-                          <td>2009/12/09</td>
-                          <td>$85,675</td>
-                        </tr>
-                        <tr>
-                          <td>Howard Hatfield</td>
-                          <td>Office Manager</td>
-                          <td>San Francisco</td>
-                          <td>51</td>
-                          <td>2008/12/16</td>
-                          <td>$164,500</td>
-                        </tr>
-                        <tr>
-                          <td>Hope Fuentes</td>
-                          <td>Secretary</td>
-                          <td>San Francisco</td>
-                          <td>41</td>
-                          <td>2010/02/12</td>
-                          <td>$109,850</td>
-                        </tr>
-                        <tr>
-                          <td>Vivian Harrell</td>
-                          <td>Financial Controller</td>
-                          <td>San Francisco</td>
-                          <td>62</td>
-                          <td>2009/02/14</td>
-                          <td>$452,500</td>
-                        </tr>
-                        <tr>
-                          <td>Timothy Mooney</td>
-                          <td>Office Manager</td>
-                          <td>London</td>
-                          <td>37</td>
-                          <td>2008/12/11</td>
-                          <td>$136,200</td>
-                        </tr>
-                        <tr>
-                          <td>Jackson Bradshaw</td>
-                          <td>Director</td>
-                          <td>New York</td>
-                          <td>65</td>
-                          <td>2008/09/26</td>
-                          <td>$645,750</td>
-                        </tr>
-                        <tr>
-                          <td>Olivia Liang</td>
-                          <td>Support Engineer</td>
-                          <td>Singapore</td>
-                          <td>64</td>
-                          <td>2011/02/03</td>
-                          <td>$234,500</td>
-                        </tr>
-                        <tr>
-                          <td>Bruno Nash</td>
-                          <td>Software Engineer</td>
-                          <td>London</td>
-                          <td>38</td>
-                          <td>2011/05/03</td>
-                          <td>$163,500</td>
-                        </tr>
-                        <tr>
-                          <td>Sakura Yamamoto</td>
-                          <td>Support Engineer</td>
-                          <td>Tokyo</td>
-                          <td>37</td>
-                          <td>2009/08/19</td>
-                          <td>$139,575</td>
-                        </tr>
-                        <tr>
-                          <td>Thor Walton</td>
-                          <td>Developer</td>
-                          <td>New York</td>
-                          <td>61</td>
-                          <td>2013/08/11</td>
-                          <td>$98,540</td>
-                        </tr>
-                        <tr>
-                          <td>Finn Camacho</td>
-                          <td>Support Engineer</td>
-                          <td>San Francisco</td>
-                          <td>47</td>
-                          <td>2009/07/07</td>
-                          <td>$87,500</td>
-                        </tr>
-                        <tr>
-                          <td>Serge Baldwin</td>
-                          <td>Data Coordinator</td>
-                          <td>Singapore</td>
-                          <td>64</td>
-                          <td>2012/04/09</td>
-                          <td>$138,575</td>
-                        </tr>
-                        <tr>
-                          <td>Zenaida Frank</td>
-                          <td>Software Engineer</td>
-                          <td>New York</td>
-                          <td>63</td>
-                          <td>2010/01/04</td>
-                          <td>$125,250</td>
-                        </tr>
-                        <tr>
-                          <td>Zorita Serrano</td>
-                          <td>Software Engineer</td>
-                          <td>San Francisco</td>
-                          <td>56</td>
-                          <td>2012/06/01</td>
-                          <td>$115,000</td>
-                        </tr>
-                        <tr>
-                          <td>Jennifer Acosta</td>
-                          <td>Junior Javascript Developer</td>
-                          <td>Edinburgh</td>
-                          <td>43</td>
-                          <td>2013/02/01</td>
-                          <td>$75,650</td>
-                        </tr>
-                        <tr>
-                          <td>Cara Stevens</td>
-                          <td>Sales Assistant</td>
-                          <td>New York</td>
-                          <td>46</td>
-                          <td>2011/12/06</td>
-                          <td>$145,600</td>
-                        </tr>
-                        <tr>
-                          <td>Hermione Butler</td>
-                          <td>Regional Director</td>
-                          <td>London</td>
-                          <td>47</td>
-                          <td>2011/03/21</td>
-                          <td>$356,250</td>
-                        </tr>
-                        <tr>
-                          <td>Lael Greer</td>
-                          <td>Systems Administrator</td>
-                          <td>London</td>
-                          <td>21</td>
-                          <td>2009/02/27</td>
-                          <td>$103,500</td>
-                        </tr>
-                        <tr>
-                          <td>Jonas Alexander</td>
-                          <td>Developer</td>
-                          <td>San Francisco</td>
-                          <td>30</td>
-                          <td>2010/07/14</td>
-                          <td>$86,500</td>
-                        </tr>
-                        <tr>
-                          <td>Shad Decker</td>
-                          <td>Regional Director</td>
-                          <td>Edinburgh</td>
-                          <td>51</td>
-                          <td>2008/11/13</td>
-                          <td>$183,000</td>
-                        </tr>
-                        <tr>
-                          <td>Michael Bruce</td>
-                          <td>Javascript Developer</td>
-                          <td>Singapore</td>
-                          <td>29</td>
-                          <td>2011/06/27</td>
-                          <td>$183,000</td>
-                        </tr>
-                        <tr>
-                          <td>Donna Snider</td>
-                          <td>Customer Support</td>
-                          <td>New York</td>
-                          <td>27</td>
-                          <td>2011/01/25</td>
-                          <td>$112,000</td>
-                        </tr>
-                      </tbody> -->
-                        </table>
-                      </div>
-                  </div>
-                </div>
-              </div>  
-              </div>
-            </div>
-          <!-- end: content -->
+                      // $std_query = "SELECT ";
+                      $std_result = mysqli_query($conn, $std_query);
 
+                      while($rows = mysqli_fetch_assoc($std_result)){
+                        ?>
 
-
-          <!-- start: right menu -->
-            <div id="right-menu">
-              <ul class="nav nav-tabs">
-                <li class="active">
-                 <a data-toggle="tab" href="#right-menu-user">
-                  <span class="fa fa-comment-o fa-2x"></span>
-                 </a>
-                </li>
-                <li>
-                 <a data-toggle="tab" href="#right-menu-notif">
-                  <span class="fa fa-bell-o fa-2x"></span>
-                 </a>
-                </li>
-                <li>
-                  <a data-toggle="tab" href="#right-menu-config">
-                   <span class="fa fa-cog fa-2x"></span>
-                  </a>
-                 </li>
-              </ul>
-
-              <div class="tab-content">
-                <div id="right-menu-user" class="tab-pane fade in active">
-                  <div class="search col-md-12">
-                    <input type="text" placeholder="search.."/>
-                  </div>
-                  <div class="user col-md-12">
-                   <ul class="nav nav-list">
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="away">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-desktop"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="offline">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
-                    <li class="online">
-                      <img src="asset/img/avatar.jpg" alt="user name">
-                      <div class="name">
-                        <h5><b>Bill Gates</b></h5>
-                        <p>Hi there.?</p>
-                      </div>
-                      <div class="gadget">
-                        <span class="fa  fa-mobile-phone fa-2x"></span> 
-                      </div>
-                      <div class="dot"></div>
-                    </li>
+                        <li  role="presentation" class=""><a  href="#tabs-demo4-area<?php echo $rows['class_name'];?>" id="tabs-demo4-<?php echo $rows['class_name'];?>" role="tab" data-toggle="tab" aria-expanded="true"><?php echo $rows['class_name'];?> STD [A - Section]</a></li>
+                        
+                        <?php
+                      }
+                    ?>
 
                   </ul>
-                </div>
-                <!-- Chatbox -->
-                <div class="col-md-12 chatbox">
-                  <div class="col-md-12">
-                    <a href="#" class="close-chat">X</a><h4>Akihiko Avaron</h4>
-                  </div>
-                  <div class="chat-area">
-                    <div class="chat-area-content">
-                      <div class="msg_container_base">
-                        <div class="row msg_container send">
-                          <div class="col-md-9 col-xs-9 bubble">
-                            <div class="messages msg_sent">
-                              <p>that mongodb thing looks good, huh?
-                                tiny master db, and huge document store</p>
-                                <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
-                              </div>
-                            </div>
-                            <div class="col-md-3 col-xs-3 avatar">
-                              <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                            </div>
-                          </div>
 
-                          <div class="row msg_container receive">
-                            <div class="col-md-3 col-xs-3 avatar">
-                              <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                            </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-12 top-20 padding-0">
+              <div class="col-md-12">
+                <div id="tabsDemo4Content" class="tab-content tab-content-v3">
+                  <div role="tabpanel" class="tab-pane fade active in" id="tabs-demo4-area1" aria-labelledby="tabs-demo4-area1">
+                    <div class="panel">
+                      <div class="panel-heading"><h3>Student Details</h3></div>
+                        <div class="panel-body">
+                          <div class="responsive-table">
+                            <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+
+                              <thead>
+                                <tr>
+                                  <th>Register Number Id</th>
+                                  <th>Name</th>
+                                  <th>phone number</th>
+                                  <th>Class Room</th>
+                                  <th>Edit Profile</th>
+                                  <th>View Details</th>
+                                </tr>
+                              </thead>
+
+                              <tbody>
+                                <?php 
+                                  // $query = "SELECT * FROM students ORDER BY first_name ASC";
+                                    $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
+                                    JOIN class_rooms
+                                        ON class_rooms.class_id = students.class_id
+                                    JOIN class_sections
+                                        ON class_sections.section_id = students.section_id";
+                                    $result = mysqli_query($conn, $query);
+
+                                    // $row_num = mysqli_num_rows($result);
+
+                                    if(!$result){
+                                      echo "query failed";
+                                    } else {
+
+                                    while($rows = mysqli_fetch_assoc($result)){
+                                  ?>
+                                    <tr>
+                                      <td><?php echo $rows['user_id'];?></td>
+                                      <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
+                                      <td><?php echo $rows['phone'];?></td>
+                                      <td><?php echo $rows['class_name'];?> Standard [<?php echo $rows['section_name'];?> Section]</td>
+                                      <td><a href="update_profile.php?id=<?php echo $rows['student_id'];?>">update profile</a></td>
+                                      <td><a href="view_profile.php?id=<?php echo $rows['student_id'];?>">view details</a></td>
+                                    </tr>
+                                  <?php
+                                    }}
+                                  ?>
+                              </tbody>
+
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tabs-demo4-area2" aria-labelledby="tabs-demo4-area2">
+                      <p>2</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tabs-demo4-area3" aria-labelledby="tabs-demo4-area3">
+                      <p>3</p>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="tabs-demo4-area4" aria-labelledby="tabs-demo4-area4">
+                      <p>4</p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- end: content -->
+              <!-- start: right menu -->
+              <div id="right-menu">
+                <ul class="nav nav-tabs">
+                  <li class="active">
+                    <a data-toggle="tab" href="#right-menu-user">
+                      <span class="fa fa-comment-o fa-2x"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#right-menu-notif">
+                      <span class="fa fa-bell-o fa-2x"></span>
+                    </a>
+                  </li>
+                  <li>
+                    <a data-toggle="tab" href="#right-menu-config">
+                    <span class="fa fa-cog fa-2x"></span>
+                    </a>
+                  </li>
+                </ul>
+
+                <div class="tab-content">
+                  <div id="right-menu-user" class="tab-pane fade in active">
+                    <div class="search col-md-12">
+                      <input type="text" placeholder="search.."/>
+                    </div>
+                    <div class="user col-md-12">
+                      <ul class="nav nav-list">
+                        <li class="online">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-mobile-phone fa-2x"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="away">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-desktop"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="offline">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="offline">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="online">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-mobile-phone fa-2x"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="offline">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="online">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-mobile-phone fa-2x"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="offline">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="offline">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="online">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-mobile-phone fa-2x"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+                        <li class="online">
+                          <img src="asset/img/avatar.jpg" alt="user name">
+                          <div class="name">
+                            <h5><b>Bill Gates</b></h5>
+                            <p>Hi there.?</p>
+                          </div>
+                          <div class="gadget">
+                            <span class="fa  fa-mobile-phone fa-2x"></span> 
+                          </div>
+                          <div class="dot"></div>
+                        </li>
+
+                      </ul>
+                    </div>
+                    <!-- Chatbox -->
+                  <div class="col-md-12 chatbox">
+                    <div class="col-md-12">
+                      <a href="#" class="close-chat">X</a><h4>Akihiko Avaron</h4>
+                    </div>
+                    <div class="chat-area">
+                      <div class="chat-area-content">
+                        <div class="msg_container_base">
+                          <div class="row msg_container send">
                             <div class="col-md-9 col-xs-9 bubble">
-                              <div class="messages msg_receive">
+                              <div class="messages msg_sent">
                                 <p>that mongodb thing looks good, huh?
                                   tiny master db, and huge document store</p>
                                   <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
                                 </div>
                               </div>
+                              <div class="col-md-3 col-xs-3 avatar">
+                                <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                              </div>
                             </div>
 
-                            <div class="row msg_container send">
+                            <div class="row msg_container receive">
+                              <div class="col-md-3 col-xs-3 avatar">
+                                <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                              </div>
                               <div class="col-md-9 col-xs-9 bubble">
-                                <div class="messages msg_sent">
+                                <div class="messages msg_receive">
                                   <p>that mongodb thing looks good, huh?
                                     tiny master db, and huge document store</p>
                                     <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
                                   </div>
                                 </div>
-                                <div class="col-md-3 col-xs-3 avatar">
-                                  <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                </div>
                               </div>
 
-                              <div class="row msg_container receive">
-                                <div class="col-md-3 col-xs-3 avatar">
-                                  <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                </div>
+                              <div class="row msg_container send">
                                 <div class="col-md-9 col-xs-9 bubble">
-                                  <div class="messages msg_receive">
+                                  <div class="messages msg_sent">
                                     <p>that mongodb thing looks good, huh?
                                       tiny master db, and huge document store</p>
                                       <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
                                     </div>
                                   </div>
+                                  <div class="col-md-3 col-xs-3 avatar">
+                                    <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                                  </div>
                                 </div>
 
-                                <div class="row msg_container send">
+                                <div class="row msg_container receive">
+                                  <div class="col-md-3 col-xs-3 avatar">
+                                    <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                                  </div>
                                   <div class="col-md-9 col-xs-9 bubble">
-                                    <div class="messages msg_sent">
+                                    <div class="messages msg_receive">
                                       <p>that mongodb thing looks good, huh?
                                         tiny master db, and huge document store</p>
                                         <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
                                       </div>
                                     </div>
-                                    <div class="col-md-3 col-xs-3 avatar">
-                                      <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                    </div>
                                   </div>
 
-                                  <div class="row msg_container receive">
-                                    <div class="col-md-3 col-xs-3 avatar">
-                                      <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
-                                    </div>
+                                  <div class="row msg_container send">
                                     <div class="col-md-9 col-xs-9 bubble">
-                                      <div class="messages msg_receive">
+                                      <div class="messages msg_sent">
                                         <p>that mongodb thing looks good, huh?
                                           tiny master db, and huge document store</p>
                                           <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
                                         </div>
                                       </div>
+                                      <div class="col-md-3 col-xs-3 avatar">
+                                        <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                                      </div>
+                                    </div>
+
+                                    <div class="row msg_container receive">
+                                      <div class="col-md-3 col-xs-3 avatar">
+                                        <img src="asset/img/avatar.jpg" class=" img-responsive " alt="user name">
+                                      </div>
+                                      <div class="col-md-9 col-xs-9 bubble">
+                                        <div class="messages msg_receive">
+                                          <p>that mongodb thing looks good, huh?
+                                            tiny master db, and huge document store</p>
+                                            <time datetime="2009-11-13T20:00">Timothy • 51 min</time>
+                                          </div>
+                                        </div>
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
-                              </div>
-                              <div class="chat-input">
-                                <textarea placeholder="type your message here.."></textarea>
-                              </div>
-                              <div class="user-list">
-                                <ul>
-                                  <li class="online">
-                                    <a href=""  data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <div class="user-avatar"><img src="asset/img/avatar.jpg" alt="user name"></div>
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="online">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="offline">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="online">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                  <li class="away">
-                                    <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
-                                      <img src="asset/img/avatar.jpg" alt="user name">
-                                      <div class="dot"></div>
-                                    </a>
-                                  </li>
-                                </ul>
+                                <div class="chat-input">
+                                  <textarea placeholder="type your message here.."></textarea>
+                                </div>
+                                <div class="user-list">
+                                  <ul>
+                                    <li class="online">
+                                      <a href=""  data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <div class="user-avatar"><img src="asset/img/avatar.jpg" alt="user name"></div>
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="offline">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="away">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="online">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="offline">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="away">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="offline">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="offline">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="away">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="online">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="away">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                    <li class="away">
+                                      <a href="" data-toggle="tooltip" data-placement="left" title="Akihiko avaron">
+                                        <img src="asset/img/avatar.jpg" alt="user name">
+                                        <div class="dot"></div>
+                                      </a>
+                                    </li>
+                                  </ul>
+                                </div>
                               </div>
                             </div>
-                          </div>
-                          <div id="right-menu-notif" class="tab-pane fade">
+                            <div id="right-menu-notif" class="tab-pane fade">
 
-                            <ul class="mini-timeline">
+                              <ul class="mini-timeline">
+                                <li class="mini-timeline-highlight">
+                                <div class="mini-timeline-panel">
+                                  <h5 class="time">07:00</h5>
+                                  <p>Coding!!</p>
+                                </div>
+                              </li>
+
                               <li class="mini-timeline-highlight">
-                               <div class="mini-timeline-panel">
-                                <h5 class="time">07:00</h5>
-                                <p>Coding!!</p>
+                              <div class="mini-timeline-panel">
+                                <h5 class="time">09:00</h5>
+                                <p>Playing The Games</p>
                               </div>
                             </li>
-
                             <li class="mini-timeline-highlight">
-                             <div class="mini-timeline-panel">
-                              <h5 class="time">09:00</h5>
-                              <p>Playing The Games</p>
+                            <div class="mini-timeline-panel">
+                              <h5 class="time">12:00</h5>
+                              <p>Meeting with <a href="#">Clients</a></p>
                             </div>
                           </li>
-                          <li class="mini-timeline-highlight">
-                           <div class="mini-timeline-panel">
-                            <h5 class="time">12:00</h5>
-                            <p>Meeting with <a href="#">Clients</a></p>
+                          <li class="mini-timeline-highlight mini-timeline-warning">
+                          <div class="mini-timeline-panel">
+                            <h5 class="time">15:00</h5>
+                            <p>Breakdown the Personal PC</p>
                           </div>
                         </li>
-                        <li class="mini-timeline-highlight mini-timeline-warning">
-                         <div class="mini-timeline-panel">
+                        <li class="mini-timeline-highlight mini-timeline-info">
+                        <div class="mini-timeline-panel">
                           <h5 class="time">15:00</h5>
-                          <p>Breakdown the Personal PC</p>
+                          <p>Checking Server!</p>
                         </div>
                       </li>
-                      <li class="mini-timeline-highlight mini-timeline-info">
-                       <div class="mini-timeline-panel">
-                        <h5 class="time">15:00</h5>
-                        <p>Checking Server!</p>
-                      </div>
-                    </li>
-                    <li class="mini-timeline-highlight mini-timeline-success">
-                      <div class="mini-timeline-panel">
-                        <h5 class="time">16:01</h5>
-                        <p>Hacking The public wifi</p>
-                      </div>
-                    </li>
-                    <li class="mini-timeline-highlight mini-timeline-danger">
-                      <div class="mini-timeline-panel">
-                        <h5 class="time">21:00</h5>
-                        <p>Sleep!</p>
-                      </div>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                  </ul>
+                      <li class="mini-timeline-highlight mini-timeline-success">
+                        <div class="mini-timeline-panel">
+                          <h5 class="time">16:01</h5>
+                          <p>Hacking The public wifi</p>
+                        </div>
+                      </li>
+                      <li class="mini-timeline-highlight mini-timeline-danger">
+                        <div class="mini-timeline-panel">
+                          <h5 class="time">21:00</h5>
+                          <p>Sleep!</p>
+                        </div>
+                      </li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                      <li></li>
+                    </ul>
 
+                  </div>
+                  <div id="right-menu-config" class="tab-pane fade">
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Notification</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-info">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch1"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Custom Designer</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-danger">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch2"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Autologin</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-success">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch3"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Auto Hacking</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-warning">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch4" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch4"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Auto locking</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch5"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>FireWall</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch6" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch6"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>CSRF Max</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-warning">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch7" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch7"></label>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Man In The Middle</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-danger">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch8" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch8"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <div class="col-md-6 padding-0">
+                        <h5>Auto Repair</h5>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="mini-onoffswitch onoffswitch-success">
+                          <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch9" checked>
+                          <label class="onoffswitch-label" for="myonoffswitch9"></label>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-12">
+                      <input type="button" value="More.." class="btnmore">
+                    </div>
+
+                  </div>
                 </div>
-                <div id="right-menu-config" class="tab-pane fade">
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Notification</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-info">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch1" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch1"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Custom Designer</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-danger">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch2" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch2"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Autologin</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-success">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch3" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch3"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto Hacking</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-warning">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch4" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch4"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto locking</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch5" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch5"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>FireWall</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch6" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch6"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>CSRF Max</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-warning">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch7" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch7"></label>
-                      </div>
-                    </div>
-                  </div>
-
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Man In The Middle</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-danger">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch8" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch8"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <div class="col-md-6 padding-0">
-                      <h5>Auto Repair</h5>
-                    </div>
-                    <div class="col-md-6">
-                      <div class="mini-onoffswitch onoffswitch-success">
-                        <input type="checkbox" name="onoffswitch2" class="onoffswitch-checkbox" id="myonoffswitch9" checked>
-                        <label class="onoffswitch-label" for="myonoffswitch9"></label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col-md-12">
-                    <input type="button" value="More.." class="btnmore">
-                  </div>
-
-                </div>
-              </div>
-            </div>  
-          <!-- end: right menu -->
+              </div>  
+              <!-- end: right menu -->
           
       </div>
-
-      <!-- start: Mobile -->
-      <div id="mimin-mobile" class="reverse">
-        <div class="mimin-mobile-menu-list">
-            <div class="col-md-12 sub-mimin-mobile-menu-list animated fadeInLeft">
-                <ul class="nav nav-list">
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-home fa"></span>Dashboard 
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                          <li><a href="dashboard-v1.html">Dashboard v.1</a></li>
-                          <li><a href="dashboard-v2.html">Dashboard v.2</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-diamond fa"></span>Layout
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="topnav.html">Top Navigation</a></li>
-                        <li><a href="boxed.html">Boxed</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span>Charts
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="chartjs.html">ChartJs</a></li>
-                        <li><a href="morris.html">Morris</a></li>
-                        <li><a href="flot.html">Flot</a></li>
-                        <li><a href="sparkline.html">SparkLine</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa fa-pencil-square"></span>Ui Elements
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="color.html">Color</a></li>
-                        <li><a href="weather.html">Weather</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="icons.html">Icons</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="media.html">Media</a></li>
-                        <li><a href="panels.html">Panels & Tabs</a></li>
-                        <li><a href="notifications.html">Notifications & Tooltip</a></li>
-                        <li><a href="badges.html">Badges & Label</a></li>
-                        <li><a href="progress.html">Progress</a></li>
-                        <li><a href="sliders.html">Sliders</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="modal.html">Modals</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                       <span class="fa fa-check-square-o"></span>Forms
-                       <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="formelement.html">Form Element</a></li>
-                        <li><a href="#">Wizard</a></li>
-                        <li><a href="#">File Upload</a></li>
-                        <li><a href="#">Text Editor</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa fa-table"></span>Tables
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="datatables.html">Data Tables</a></li>
-                        <li><a href="handsontable.html">handsontable</a></li>
-                        <li><a href="tablestatic.html">Static</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a href="calendar.html">
-                         <span class="fa fa-calendar-o"></span>Calendar
-                      </a>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa fa-envelope-o"></span>Mail
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="mail-box.html">Inbox</a></li>
-                        <li><a href="compose-mail.html">Compose Mail</a></li>
-                        <li><a href="view-mail.html">View Mail</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa fa-file-code-o"></span>Pages
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="forgotpass.html">Forgot Password</a></li>
-                        <li><a href="login.html">SignIn</a></li>
-                        <li><a href="reg.html">SignUp</a></li>
-                        <li><a href="article-v1.html">Article v1</a></li>
-                        <li><a href="search-v1.html">Search Result v1</a></li>
-                        <li><a href="productgrid.html">Product Grid</a></li>
-                        <li><a href="profile-v1.html">Profile v1</a></li>
-                        <li><a href="invoice-v1.html">Invoice v1</a></li>
-                      </ul>
-                    </li>
-                     <li class="ripple"><a class="tree-toggle nav-header"><span class="fa "></span> MultiLevel  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="view-mail.html">Level 1</a></li>
-                        <li><a href="view-mail.html">Level 1</a></li>
-                        <li class="ripple">
-                          <a class="sub-tree-toggle nav-header">
-                            <span class="fa fa-envelope-o"></span> Level 1
-                            <span class="fa-angle-right fa right-arrow text-right"></span>
-                          </a>
-                          <ul class="nav nav-list sub-tree">
-                            <li><a href="mail-box.html">Level 2</a></li>
-                            <li><a href="compose-mail.html">Level 2</a></li>
-                            <li><a href="view-mail.html">Level 2</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li>
-                    <li><a href="credits.html">Credits</a></li>
-                  </ul>
-            </div>
-        </div>       
-      </div>
-      <button id="mimin-mobile-menu-opener" class="animated rubberBand btn btn-circle btn-danger">
-        <span class="fa fa-bars"></span>
-      </button>
-       <!-- end: Mobile -->
+      
+     
 
 
 
 
 <?php
+    include("../../../private/required/teacher/mobile_nav.php");
     include("../../../private/required/teacher/teacher_footer.php");
 ?>
