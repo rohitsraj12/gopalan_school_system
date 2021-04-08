@@ -1,8 +1,8 @@
 <?php
-
     session_start();
     session_destroy();
-        header("location: admin_login.php");
-        exit();
+
+    header("location: index.html");
+    exit();
 
 ?>
