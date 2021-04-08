@@ -22,14 +22,15 @@
     echo $row['first_name'];
 
     include('../../private/required/teacher/teacher_header.php');
-
 ?>
+
    <!-- start: content -->
    <div id="content">
         <div class="panel">
             <div class="panel-body">
+
                 <div class="col-md-6 col-sm-12">
-                <h3 class="animated fadeInLeft">Gopalan International School - Teachers</h3>
+                  <h3 class="animated fadeInLeft">Gopalan International School - Teachers</h3>
                 <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Whitefield,Bangalore</p>
 
                 <ul class="nav navbar-nav">
@@ -39,6 +40,7 @@
                     <li><a href="">Explicar</a></li>
                     <li><a href="">Rebum</a></li>
                 </ul>
+
             </div>
             <div class="col-md-6 col-sm-12">
                 <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
