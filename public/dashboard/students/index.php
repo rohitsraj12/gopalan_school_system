@@ -62,19 +62,30 @@
               </div>
             </div>
 
-            <?php
-        //build the tabs  
-        $rows = mysqli_fetch_rows($std_result)  
+
+
+
+        <?php //$panels = rwmb_meta("ssc_tabpanels");
+        $rows = mysqli_fetch_assoc($std_result);
+        $tabContentHtm = '';
         foreach($rows as $row => $a):
         ?>
           <li role="presentation">
-              <a href="#tab-<?php echo $a['class_name'] ?>" data-toggle="tab"><?php echo $a['class_id'] ?></a>
+              <a href="#tab-<?php echo $a['class_id'] ?>" data-toggle="tab"><?php echo $a['class_id'] ?></a>
           </li>
         <?php
         // build content displayed on click of each tab
-        $tabContentHtm .= '<div class="tab-pane" id="tab-'. $i .'">'. $p['content'] .'</div>\r\n';
+        $tabContentHtm .= '<div class="tab-pane" id="tab-'. $a['class_name'] .'">'. $a['class_id'] .'</div>\r\n';
         endforeach; 
         ?>
+
+
+
+
+
+
+
+
 
             <div class="col-md-12 top-20 padding-0">
               <div class="col-md-12">
