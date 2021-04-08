@@ -62,6 +62,20 @@
               </div>
             </div>
 
+            <?php
+        //build the tabs  
+        $rows = mysqli_fetch_rows($std_result)  
+        foreach($rows as $row => $a):
+        ?>
+          <li role="presentation">
+              <a href="#tab-<?php echo $a['class_name'] ?>" data-toggle="tab"><?php echo $a['class_id'] ?></a>
+          </li>
+        <?php
+        // build content displayed on click of each tab
+        $tabContentHtm .= '<div class="tab-pane" id="tab-'. $i .'">'. $p['content'] .'</div>\r\n';
+        endforeach; 
+        ?>
+
             <div class="col-md-12 top-20 padding-0">
               <div class="col-md-12">
                 <div id="tabsDemo4Content" class="tab-content tab-content-v3">
