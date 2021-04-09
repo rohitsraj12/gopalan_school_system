@@ -66,17 +66,20 @@
 
 
         <?php //$panels = rwmb_meta("ssc_tabpanels");
-        $rows = mysqli_fetch_assoc($std_result);
-        $tabContentHtm = '';
-        foreach($rows as $row => $a):
+          $rows = mysqli_fetch_rows($std_result);
+          $tabContentHtm = '';
+          foreach($std_result as $row => $a):
         ?>
+
+
           <li role="presentation">
               <a href="#tab-<?php echo $a['class_id'] ?>" data-toggle="tab"><?php echo $a['class_id'] ?></a>
           </li>
+
         <?php
-        // build content displayed on click of each tab
-        $tabContentHtm .= '<div class="tab-pane" id="tab-'. $a['class_name'] .'">'. $a['class_id'] .'</div>\r\n';
-        endforeach; 
+          // build content displayed on click of each tab
+          $tabContentHtm .= '<div class="tab-pane" id="tab-'. $a['class_name'] .'">'. $a['class_id'] .'</div>\r\n';
+          endforeach; 
         ?>
 
 
