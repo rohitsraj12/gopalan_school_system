@@ -44,7 +44,6 @@ if(isset($_POST['login-admin'])){
                     session_start();
                     $_SESSION["id"] = $row['teacher_id'];
                     $_SESSION["emp_id"] = $row['emp_id'];
-
                     
                     header("Location: ../../dashboard/index.php");
                     exit();
