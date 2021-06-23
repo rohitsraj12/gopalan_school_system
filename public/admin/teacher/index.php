@@ -82,6 +82,7 @@
 
                             while($rows = mysqli_fetch_assoc($result)){
                           ?>
+                          
                             <tr>
                               <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
                               <td><?php echo $rows['school_name'];?></td>
@@ -92,9 +93,10 @@
                               
                               ?></td>
                               <td><?php echo $rows['emp_id'];?></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">update profile</a></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['teacher_id'];?>">view details</a></td>
+                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['emp_id'];?>">update profile</a></td>
+                              <td><a href="view_teacher_profile.php?id=<?php echo $rows['emp_id'];?>">view details</a></td>
                             </tr>
+
                           <?php
                             }
                           ?>
