@@ -25,24 +25,24 @@
 
     
     // fetch teacher record query
-    $capture_emp_id         = $_GET['id'];
+    // $capture_emp_id         = $_GET['id'];
 
-    $teacher_query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
-                      JOIN schools
-                          ON schools.school_id = teachers.school_id
-                      JOIN teacher_positions
-                          ON teacher_positions.position_id = teachers.position_id
-                      JOIN class_rooms
-                          ON class_rooms.class_id = teachers.class_id
-                      JOIN class_sections
-                          ON class_sections.section_id = teachers.section_id
-                      WHERE emp_id = '$capture_emp_id'";
+    // $teacher_query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
+    //                   JOIN schools
+    //                       ON schools.school_id = teachers.school_id
+    //                   JOIN teacher_positions
+    //                       ON teacher_positions.position_id = teachers.position_id
+    //                   JOIN class_rooms
+    //                       ON class_rooms.class_id = teachers.class_id
+    //                   JOIN class_sections
+    //                       ON class_sections.section_id = teachers.section_id
+    //                   WHERE emp_id = '$capture_emp_id'";
                       
-    $teacher_result = mysqli_query($conn, $teacher_query);
+    // $teacher_result = mysqli_query($conn, $teacher_query);
 
-    $teacher_row    = mysqli_fetch_assoc($teacher_result);
+    // $teacher_row    = mysqli_fetch_assoc($teacher_result);
 
-    $teacher_full_name = $teacher_row['first_name'] . " " . $teacher_row['last_name'];
+    // $teacher_full_name = $teacher_row['first_name'] . " " . $teacher_row['last_name'];
 
 ?>
 
