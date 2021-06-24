@@ -78,7 +78,7 @@
                   <li class="dropdown avatar-dropdown">
                    <img src="<?php base_url();?>img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                    <ul class="dropdown-menu user-dropdown">
-                     <li><a href="<?php base_url();?>"><span class="fa fa-user"></span> My Profile</a></li>
+                     <li><a href="<?php base_url();?>admin/view_admin_profile.php"><span class="fa fa-user"></span> My Profile</a></li>
                      <li><a href="<?php base_url();?>"><span class="fa fa-calendar"></span> My Calendar</a></li>
                      <li><a href="<?php base_url();?>logout.php">logout</a></li>
                      <li role="separator" class="divider"></li>
@@ -128,11 +128,31 @@
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
+                        <span class="fa-area-chart fa"></span>Notice Board
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="<?php base_url();?>admin/notice_board/index.php">View</a></li>
+                        <li><a href="chartjs.html">Create</a></li>
+                      </ul>
+                    </li>
+                    <li class="ripple">
+                      <a class="tree-toggle nav-header">
                         <span class="fa-area-chart fa"></span>Blogs
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="morris.html">View</a></li>
+                        <li><a href="<?php base_url();?>index.php">View</a></li>
+                        <li><a href="chartjs.html">Create</a></li>
+                      </ul>
+                    </li>
+                    <li class="ripple">
+                      <a class="tree-toggle nav-header">
+                        <span class="fa-area-chart fa"></span>Testimonial
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="<?php base_url();?>index.php">View</a></li>
                         <li><a href="chartjs.html">Create</a></li>
                       </ul>
                     </li>
