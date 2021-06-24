@@ -3,17 +3,7 @@
 if(isset($_POST['create_profile'])){
 
     require_once '../../../../private/config/db_connection/db_connect.php';
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $emp_id = $_POST['emp_id'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $re_password = $_POST['re_password'];
-    $school = $_POST['school_name'];
-    $position = $_POST['position'];
-    $class = $_POST['grade'];
-    $section = $_POST['section'];
-    $status = '1';
+    
 
     // echo $first_name . ", " . $last_name . ", " . $emp_id . ", " . $email . ", ". $password . ", " . $re_password . ", " . $status;
     
