@@ -5,7 +5,7 @@ if(isset($_POST['create_profile'])){
     require_once '../../../../private/config/db_connection/db_connect.php';
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
-    $user_id = $_POST['user_id'];
+    $student_user_id = $_POST['user_id'];
     $phone = $_POST['phone'];
     $password = $_POST['password'];
     $re_password = $_POST['re_password'];
@@ -13,16 +13,16 @@ if(isset($_POST['create_profile'])){
     $section = $_POST['section'];
     $status = '1';
 
-    // echo $first_name . ", " . $last_name . ", " . $user_id . ", " . $phone . ", ". $password . ", " . $re_password . ", " . $status;
+    // echo $first_name . ", " . $last_name . ", " . $student_user_id . ", " . $phone . ", ". $password . ", " . $re_password . ", " . $status;
     
     //if empty field condition
-    if(empty($first_name) || empty($last_name) || empty($user_id) || empty($phone) || empty($password) || empty($re_password) || empty($phone)){
+    if(empty($first_name) || empty($last_name) || empty($student_user_id) || empty($phone) || empty($password) || empty($re_password) || empty($phone)){
         // redirect to register and empty field
-        header("location: ../create_new_student.php?error=emptyfields&user_name=".$user_id."&mail".$phone);
+        header("location: ../create_new_student.php?error=emptyfields&user_name=".$student_user_id."&mail".$phone);
         //stop scripting
         exit();
 
-    } else if (!filter_var($phone, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $user_id)){
+    } else if (!filter_var($phone, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $student_user_id)){
         // redirect to register and empty field
         header("location: ../create_new_student.php?error=invalidmailuser_name");
         //stop scripting
@@ -30,11 +30,11 @@ if(isset($_POST['create_profile'])){
 
     // } else if (!filter_var($phone, FILTER_VALIDATE_EMAIL)){
     //     // redirect to register and empty field
-    //     header("location: ../create_new_student.php?error=invalidmail&user_name=".$user_id);
+    //     header("location: ../create_new_student.php?error=invalidmail&user_name=".$student_user_id);
     //     //stop scripting
     //     exit();
 
-    } else if (!preg_match("/^[a-zA-Z0-9]*$/", $user_id)){
+    } else if (!preg_match("/^[a-zA-Z0-9]*$/", $student_user_id)){
         // redirect to register and empty field
         header("location: ../create_new_student.php?error=invalidmail&mail=".$phone);
         //stop scripting
@@ -42,13 +42,13 @@ if(isset($_POST['create_profile'])){
 
     } else if ($password !== $re_password){
         // redirect to register and empty field
-        header("location: ../create_new_student.php?error=passwordcheck&user_name=".$user_id."&mail".$phone);
+        header("location: ../create_new_student.php?error=passwordcheck&user_name=".$student_user_id."&mail".$phone);
         //stop scripting
         exit();
 
     } else {
         // prepared statement (? placeholder for safty)
-        $sql = "SELECT user_id FROM students WHERE user_id=?";
+        $sql = "SELECT student_user_id FROM students WHERE student_user_id=?";
         // 
         $stmt = mysqli_stmt_init($conn);
 
@@ -61,7 +61,7 @@ if(isset($_POST['create_profile'])){
             exit();
         } else {
             // 
-            mysqli_stmt_bind_param($stmt, "s", $user_id);
+            mysqli_stmt_bind_param($stmt, "s", $student_user_id);
             mysqli_stmt_execute($stmt);
             // is ther any match
             mysqli_stmt_store_result($stmt);
@@ -75,7 +75,7 @@ if(isset($_POST['create_profile'])){
                 exit();
             } else {
                 // $first_name = "";
-                $sql = "INSERT INTO students (first_name, last_name, `user_id`, phone, student_password, student_status, class_id, section_id) 
+                $sql = "INSERT INTO students (first_name, last_name, `student_user_id`, phone, student_password, student_status, class_id, section_id) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
 
@@ -88,7 +88,7 @@ if(isset($_POST['create_profile'])){
                     // secure password
                     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt, "sssssiii", $first_name, $last_name, $user_id, $phone, $hashed_password, $status, $class, $section);
+                    mysqli_stmt_bind_param($stmt, "sssssiii", $first_name, $last_name, $student_user_id, $phone, $hashed_password, $status, $class, $section);
                     mysqli_stmt_execute($stmt);
                 
                     // if email need to send below add email script 
