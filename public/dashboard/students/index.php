@@ -130,10 +130,10 @@
                                     while($rows = mysqli_fetch_assoc($result)){
                                   ?>
                                     <tr>
-                                      <td><?php echo $rows['user_id'];?></td>
+                                      <td><?php echo $rows['student_user_id'];?></td>
                                       <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
                                       <td><?php echo $rows['phone'];?></td>
-                                      <td><?php echo $rows['class_name'];?> Standard [<?php echo $rows['section_name'];?> Section]</td>
+                                      <td><?php echo $rows['class_name'];?> Standard [<?php echo $rows['section_name'];?> Section</td>
                                       <td><a href="update_profile.php?id=<?php echo $rows['student_id'];?>">update profile</a></td>
                                       <td><a href="view_profile.php?id=<?php echo $rows['student_id'];?>">view details</a></td>
                                     </tr>
