@@ -551,5 +551,7 @@
 <!-- end plugin for form  -->
 
 
+<script src="<?php base_url()?>js/chart_script.js"></script>
+
   </body>
 </html>
