@@ -33,13 +33,13 @@
                   <h3 class="animated fadeInLeft">Gopalan International School - Teachers</h3>
                 <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Whitefield,Bangalore</p>
 
-                <ul class="nav navbar-nav">
+                <!-- <ul class="nav navbar-nav">
                     <li><a href="" >Impedit</a></li>
                     <li><a href="" class="active">Virtute</a></li>
                     <li><a href="">Euismod</a></li>
                     <li><a href="">Explicar</a></li>
                     <li><a href="">Rebum</a></li>
-                </ul>
+                </ul> -->
 
             </div>
             <div class="col-md-6 col-sm-12">
@@ -77,11 +77,11 @@
             <div class="col-md-12 padding-0">
                 <div class="col-md-8 padding-0">
                     <div class="col-md-12 padding-0">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="panel box-v1">
                                 <div class="panel-heading bg-white border-none">
                                 <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                    <h4 class="text-left">Teachers</h4>
+                                    <h4 class="text-left">Lectures</h4>
                                 </div>
                                 <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                                     <h4>
@@ -96,9 +96,9 @@
 
                                     $row_num = mysqli_num_rows($result);
                                 ?>
-                                <h1><?php echo $row_num?></h1>
-                                <p>Total Registered Teachers</p>
+                                <h1><?php //echo $row_num?> 14 </h1>
                                 <hr/>
+                                  <p>Weekly Lectures</p>
                                 </div>
                             </div>
                         </div>
@@ -115,64 +115,49 @@
                                 </div>
                                 </div>
                                 <div class="panel-body text-center">
-                                <h1>51181,320</h1>
+                                <?php 
+                                    $query = "SELECT student_id FROM students";
+                                    $result = mysqli_query($conn, $query);
+
+                                    $row_num = mysqli_num_rows($result);
+                                ?>
+                                <h1><?php echo $row_num?></h1>
                                 <p>New Orders</p>
                                 <hr/>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> -->
                         
                         <div class="col-md-6">
                             <div class="panel box-v1">
-                                <div class="panel-heading bg-white border-none">
-                                <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                    <h4 class="text-left">Gopalan International School - Teachers</h4>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                    <h4>
-                                    <span class="icon-user icons icon text-right"></span>
-                                    </h4>
-                                </div>
-                                </div>
                                 <div class="panel-body text-center">
-                                <?php 
-                                    $query = "SELECT teacher_id FROM teachers WHERE school_id = 1";
-                                    $result = mysqli_query($conn, $query);
-
-                                    $row_num = mysqli_num_rows($result);
-                                ?>
-                                <h1><?php echo $row_num?></h1>
-                                <p>Total Registered Teachers</p>
-                                <hr/>
+                                
+                                  <h1>
+                                    Class Test
+                                  </h1>
+                                  <hr/>
+                                    <p>
+                                      <a class="btn btn-danger box-shadow-none" href="<?php base_url()?>dashboard/class_tests/">view test time table</a>
+                                      <button class="btn btn-danger box-shadow-none" data-toggle="modal" data-target="#myModal">ceate new test</button>
+                                    </p>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-md-6">
                             <div class="panel box-v1">
-                                <div class="panel-heading bg-white border-none">
-                                <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                    <h4 class="text-left">Gopalan National School - Teachers</h4>
-                                </div>
-                                <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                    <h4>
-                                    <span class="icon-basket-loaded icons icon text-right"></span>
-                                    </h4>
-                                </div>
-                                </div>
                                 <div class="panel-body text-center">
-                                <?php 
-                                    $query = "SELECT teacher_id FROM teachers WHERE school_id = 2";
-                                    $result = mysqli_query($conn, $query);
-
-                                    $row_num = mysqli_num_rows($result);
-                                ?>
-                                <h1><?php echo $row_num?></h1>
-                                <p>New Orders</p>
+                                
+                                <h1>
+                                  Student Report Card
+                                </h1>
                                 <hr/>
+                                  <a class="btn btn-danger box-shadow-none" href="<?php base_url()?>dashboard/class_tests/">View Student Report</a>
+
                                 </div>
                             </div>
                         </div>
+
                     </div>
                     <div class="col-md-12">
                         
@@ -180,34 +165,83 @@
                 </div>
                 <div class="col-md-4">
                     <div class="col-md-12 padding-0">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Akihiko Avaron</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
+                      <div class="panel box-v1">
+                          <div class="panel-heading bg-white border-none">
+                          <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
+                              <h4 class="text-left">Today's Classes</h4>
+                          </div>
+                          <!-- <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                              <h4>
+                              <span class="icon-basket-loaded icons icon text-right"></span>
+                              </h4>
+                          </div> -->
+                          </div>
+                          <div class="panel-body text-center">
+
+                            <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                              <thead>
+                                <tr>
+                                  <th>Date</th>
+                                  <th>Class</th>
+                                  <th>Attendace</th>
+                                </tr>
+                              </thead>
+                                <tbody>
+                                <tr>
+                                  <td>28/06/2021</td>
+                                  <td>4th - B section</td>
+                                  <td>
+                                    <!-- <a class="btn btn-danger box-shadow-none" href="take_attendance.php">Attendance</a> -->
+                                    <div class="row text-white text-center">
+                                      <div class="col-md-6">
+                                        <p class="bg-danger d-inline-block">3 absent</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <p class="bg-success d-inline-block">47 absent</p>
+                                      </div>
+                                    </div>
+                                    
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>28/06/2021</td>
+                                  <td>8th - C section</td>
+                                  <td>
+
+                                  <div class="row text-white text-center">
+                                      <div class="col-md-6">
+                                        <p class="bg-danger d-inline-block">7 absent</p>
+                                      </div>
+                                      <div class="col-md-6">
+                                        <p class="bg-success d-inline-block">41 absent</p>
+                                      </div>
+                                    </div>
+                                  
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>28/06/2021</td>
+                                  <td>7th - B section</td>
+                                  <td>
+
+                                  <a class="btn btn-danger box-shadow-none" href="take_attendance.php">Attendance</a>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <td>28/06/2021</td>
+                                  <td>6th - B section</td>
+                                  <td>
+
+                                  <a class="btn btn-danger box-shadow-none" href="take_attendance.php">Attendance</a>
+                                  </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                          </div>
+                      </div>
                     </div>
 
-                    <div class="col-md-12 padding-0">
+                    <!-- <div class="col-md-12 padding-0">
                         <div class="panel box-v3">
                         <div class="panel-heading bg-white border-none">
                             <h4>Report</h4>
@@ -290,9 +324,9 @@
                             </center>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
 
-                    <div class="col-md-12 padding-0">
+                    <!-- <div class="col-md-12 padding-0">
                         <div class="panel bg-light-blue">
                         <div class="panel-body text-white">
                             <p class="animated fadeInUp quote">Lorem ipsum dolor sit amet, consectetuer adipiscing elit Ut wisi..."</p>
@@ -308,243 +342,10 @@
                             </div>
                         </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
-            <div class="col-md-12 card-wrap padding-0">
-                <div class="col-md-3">
-                    <div class="panel box-v2">
-                        <div class="panel-heading padding-0">
-                        <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                        <div class="box-v2-detail">
-                            <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                            <h4>Student 01</h4>
-                        </div>
-                        </div>
-                        <div class="panel-body">
-                        <div class="col-md-12 padding-0 text-center">
-                            <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                <h3>2.000</h3>
-                                <p>Post</p>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                <h3>2.232</h3>
-                                <p>share</p>
-                            </div>
-                            <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                <h3>4.320</h3>
-                                <p>photos</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                        
-            </div><!--End-->
-            
-
-            <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 02</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 03</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 04</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 05</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 06</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 07</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
-
-                <div class="col-md-3">
-                        <div class="panel box-v2">
-                            <div class="panel-heading padding-0">
-                            <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                            <div class="box-v2-detail">
-                                <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                <h4>Student 08</h4>
-                            </div>
-                            </div>
-                            <div class="panel-body">
-                            <div class="col-md-12 padding-0 text-center">
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.000</h3>
-                                    <p>Post</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                    <h3>2.232</h3>
-                                    <p>share</p>
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                    <h3>4.320</h3>
-                                    <p>photos</p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                        
-            </div><!--End-->
 
         </div><!--end-->
                    
@@ -1176,6 +977,65 @@
 
 
 
+
+
+       
+       <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Class Test</h4>
+                    </div>
+                    <form class="cmxform" id="signupForm" method="get" action="">
+                        <div class="modal-body">
+                            <div class="col-md-6">
+                                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text" id="validate_firstname" name="validate_firstname" required>
+                                    <span class="bar"></span>
+                                    <label>Subject</label>
+                                </div>
+
+                                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text" id="validate_lastname" name="validate_lastname" required>
+                                    <span class="bar"></span>
+                                    <label>Class</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="date" class="form-text" id="validate_username" name="validate_username" required>
+                                    <span class="bar"></span>
+                                    <!-- <label>Date</label> -->
+                                </div>
+
+                                <div class="form-group form-animate-text" style="margin-top:40px !important;">
+                                    <input type="text" class="form-text" id="validate_email" name="validate_email" required>
+                                    <span class="bar"></span>
+                                    <label>Section</label>
+                                </div>
+                            </div>                   
+                            <!-- <div class="col-md-12">
+                                <div class="form-group form-animate-checkbox">
+                                    <input type="checkbox" class="checkbox"  id="validate_agree" name="validate_agree">
+                                    <label>Please agree to our policy</label>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="modal-footer">
+                            
+                            <!-- <input class="submit btn btn-danger"> -->
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary" value="Submit">Save changes</button>
+                        </div>
+                    
+                    </form>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 <?php
     include("../../private/required/teacher/teacher_footer.php");
