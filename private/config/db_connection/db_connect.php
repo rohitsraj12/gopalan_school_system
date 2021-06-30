@@ -8,7 +8,7 @@
     $db_host = "localhost";
     $db_user = "root";
     $db_pass = "";
-    $db_name = "gopalan_school";
+    $db_name = "gopalan_schools";
 
     $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
 
