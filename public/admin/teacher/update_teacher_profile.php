@@ -44,6 +44,8 @@
 
     $teacher_full_name = $teacher_row['first_name'] . " " . $teacher_row['last_name'];
 
+    $tec_id = $teacher_row['teacher_id'];
+
 ?>
 
 <div class="container-fluid mimin-wrapper">
@@ -71,7 +73,7 @@
                         <div class="col-md-12 panel-body">
                              <div class="profile-v1-pp text-center">
                               <img style="width: 150px; margin: 0 auto" src="../../img/teacher/avatar.jpg"/>
-                              <h2 class="text-capitalize"><?php echo $teacher_full_name ?></h2>
+                              <h2 class="text-capitalize"><?php echo $teacher_full_name . " " . $tec_id; ?></h2>
                             </div>
                             <!-- <div class="col-md-8 padding-0">
                                 <center>
@@ -119,7 +121,7 @@
                               <div class="col-md-6">
 
                                   <div class="form-group form-animate-text" style="margin-top:40px !important;">
-                                      <input type="text" class="form-text" id="validate_firstname" name="first_name">
+                                      <input type="text" class="form-text" id="validate_firstname" name="first_name" value="">
                                       <span class="bar"></span>
                                       <label>Firstname</label>
                                   </div>
@@ -261,7 +263,8 @@
                                   </div>   
                               </div>        
                               
-                              <input type="hidden" name="teacher_id" value="<?php echo $teacher_row['teacher_id'];?>">
+                              <input type="hidden" name="teacher_id" value="<?php echo  $teacher_row['emp_id'];?>">
+                             
 
                             <div class="col-md-12">
                                 <!-- <div class="form-group form-animate-checkbox">
