@@ -6,11 +6,11 @@ if(isset($_POST['update_profile'])){
 
     $teacher_id = $_POST['teacher_id'];
 
-    // echo $teacher_id;
+    echo $teacher_id;
 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
-    $emp_id = $_POST['emp_id'];
+    // $emp_id = $_POST['emp_id'];
     $email = $_POST['email'];
     // $password = $_POST['password'];
     // $re_password = $_POST['re_password'];
@@ -18,28 +18,30 @@ if(isset($_POST['update_profile'])){
     $position = $_POST['position'];
     $class = $_POST['grade'];
     $section = $_POST['section'];
-    // $status = '1';
+    $status = '1';
 
-    $teacher_query      = "SELECT * FROM teachers WHERE teacher_id = '$teacher_id'";
+    $teacher_query      = "SELECT * FROM teachers WHERE emp_id = '$teacher_id'";
     $teacher_result     = mysqli_query($conn, $teacher_query);
     $row                = mysqli_fetch_assoc($teacher_result); 
 
-    if(empty($_POST['first_name'])){ $first_name = $row['first_name'] ;}
+    echo $row['first_name'] . "<br/>";
+
+    if(empty($first_name)){ $first_name = $row['first_name'] ;}
     if(empty($_POST['last_name'])){ $last_name = $row['last_name'] ;} 
     if(empty($_POST['emp_id'])){ $emp_id = $row['emp_id'] ;} 
     if(empty($_POST['email'])){ $email = $row['email'] ;} 
 
-    // echo $first_name . ", " . $last_name . ", " . $emp_id . ", " . $email . ", ". $school . ", " . $position . ", " . $class . ", ". $section . ", " . $status;
+    //  echo $first_name . ", " . $last_name . ", " . $emp_id . ", " . $email . ", ". $school . ", " . $position . ", " . $class . ", ". $section . ", " . $status;
 
     $sql = "UPDATE `teachers` SET `first_name`= '$first_name',
                                 `last_name`= '$last_name',
-                                `emp_id`= '$emp_id',
+                                -- `emp_id`= '$emp_id',
                                 `email`= '$email',
                                 `position_id`= '$position',
                                 `school_id`= '$school',
                                 `class_id`= '$class',
                                 `section_id`= '$section' 
-                                WHERE `teacher_id` = $teacher_id";
+                                WHERE `emp_id` = '$teacher_id'";
     
     $result = mysqli_query($conn, $sql);
 
