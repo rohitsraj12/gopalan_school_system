@@ -127,8 +127,8 @@
 
                           if($row['position_id'] == "1"){
                             ?>
-                            <li><a href="<?php base_url();?>dashboard/students/create_new_student.php">Create Student Profiles</a></li>
-                          <?php
+                              <li><a href="<?php base_url();?>dashboard/students/create_new_student.php">Create Student Profiles</a></li>
+                            <?php
                           }
 
                         ?>
@@ -138,12 +138,12 @@
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span>Blogs
+                        <span class="fa-area-chart fa"></span>Class Test
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
-                        <li><a href="morris.html">View</a></li>
-                        <li><a href="chartjs.html">Create</a></li>
+                        <li><a href="<?php base_url();?>dashboard/class_tests/">View</a></li>
+                        <!-- <li><a href="chartjs.html">Create</a></li> -->
                       </ul>
                     </li>
                     <!-- <li class="ripple"><a class="tree-toggle nav-header">
