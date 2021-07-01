@@ -15,7 +15,8 @@
 
     echo $id;
 
-    $query = "SELECT * FROM students WHERE student_id='$id'";
+    $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
+             WHERE student_id='$id'";
     $result = mysqli_query($conn, $query);
 
     $row = mysqli_fetch_assoc($result);
@@ -99,7 +100,7 @@
                   </br>
 
                   <dt>Class and division</dt>
-                    <dd><?php if($row['class_id'] == 1){ echo "Active";} ?></dd>
+                    <dd><?php echo  ?></dd>
                   </br>
 
                 </dl>
