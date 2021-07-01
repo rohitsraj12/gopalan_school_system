@@ -128,12 +128,23 @@
                     </li>
                     <li class="ripple">
                       <a class="tree-toggle nav-header">
+                        <span class="fa-diamond fa"></span> Students
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="<?php base_url();?>admin/students/">View Student list</a></li>
+                        <li><a href="<?php base_url();?>admin/students/create_new_student.php">Create Student Profile</a></li>
+                        <!-- <li><a href="boxed.html">Boxed</a></li> -->
+                      </ul>
+                    </li>
+                    <li class="ripple">
+                      <a class="tree-toggle nav-header">
                         <span class="fa-area-chart fa"></span>Notice Board
                         <span class="fa-angle-right fa right-arrow text-right"></span>
                       </a>
                       <ul class="nav nav-list tree">
                         <li><a href="<?php base_url();?>admin/notice_board/index.php">View</a></li>
-                        <li><a href="chartjs.html">Create</a></li>
+                        <li><a href="<?php base_url();?>admin/notice_board/create_notice.php">Create</a></li>
                       </ul>
                     </li>
                     <li class="ripple">
@@ -226,7 +237,7 @@
                         </li>
                       </ul>
                     </li> -->
-                    <li><a href="credits.html">Credits</a></li>
+                    <li><a href="<?php base_url();?>logout.php">Logout</a></li>
                   </ul>
                 </div>
             </div>
