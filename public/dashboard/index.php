@@ -152,7 +152,7 @@
                                   Student Report Card
                                 </h1>
                                 <hr/>
-                                  <a class="btn btn-danger box-shadow-none" href="<?php base_url()?>dashboard/class_tests/">View Student Report</a>
+                                  <a class="btn btn-danger box-shadow-none" href="<?php base_url()?>dashboard/students/">View Student Report</a>
 
                                 </div>
                             </div>
@@ -197,7 +197,7 @@
                                         <p class="bg-danger d-inline-block">3 absent</p>
                                       </div>
                                       <div class="col-md-6">
-                                        <p class="bg-success d-inline-block">47 absent</p>
+                                        <p class="bg-success d-inline-block">47 Present</p>
                                       </div>
                                     </div>
                                     
@@ -213,7 +213,7 @@
                                         <p class="bg-danger d-inline-block">7 absent</p>
                                       </div>
                                       <div class="col-md-6">
-                                        <p class="bg-success d-inline-block">41 absent</p>
+                                        <p class="bg-success d-inline-block">41 Present</p>
                                       </div>
                                     </div>
                                   
