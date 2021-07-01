@@ -32,9 +32,9 @@
                <div class="panel box-shadow-none content-header">
                   <div class="panel-body">
                     <div class="col-md-12">
-                        <h3 class="animated fadeInLeft">Data Tables</h3>
+                        <h3 class="animated fadeInLeft">Student List</h3>
                         <p class="animated fadeInDown">
-                          Table <span class="fa-angle-right fa"></span> Data Tables
+                          Table <span class="fa-angle-right fa"></span> Student List
                         </p>
                     </div>
                   </div>
@@ -42,16 +42,16 @@
               <div class="col-md-12 top-20 padding-0">
                 <div class="col-md-12">
                   <div class="panel">
-                    <div class="panel-heading"><h3>Data Tables</h3></div>
+                    <div class="panel-heading"><h3>Student List</h3></div>
                     <div class="panel-body">
                       <div class="responsive-table">
                       <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
                       <thead>
                         <tr>
                           <th>Name</th>
-                          <th>School Name</th>
-                          <th>teacher Position</th>
-                          <th>Emp Id</th>
+                          <th>Student Id</th>
+                          <th>Class and section</th>
+                          <!-- <th></th> -->
                           <th>Edit Profile</th>
                           <th>View Details</th>
                         </tr>
@@ -82,15 +82,15 @@
                             <tr>
                               <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
                               <td><?php echo $rows['student_user_id'];?></td>
-                              <td><?php echo $rows['student_id'];
+                              <td><?php echo $rows['class_name']. " [section - " . $rows['section_name'] . "]";
                                 // if($rows['position_name'] == "Class Teacher"){
                                 //    echo " - Grade" . $rows['class_name']. " [section - " . $rows['section_name'] . "]";
                                 // }
                               
                               ?></td>
-                              <td><?php echo $rows['student_user_id'];?></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['student_user_id'];?>">update profile</a></td>
-                              <td><a href="view_teacher_profile.php?id=<?php echo $rows['student_user_id'];?>">view details</a></td>
+                              <!-- <td><?php echo $rows['student_user_id'];?></td> -->
+                              <td><a href="update_students_profile.php?id=<?php echo $rows['student_user_id'];?>">update profile</a></td>
+                              <td><a href="view_student_profile.php?id=<?php echo $rows['student_user_id'];?>">view details</a></td>
                             </tr>
 
                           <?php
