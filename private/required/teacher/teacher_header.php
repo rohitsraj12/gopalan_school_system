@@ -146,6 +146,20 @@
                         <!-- <li><a href="chartjs.html">Create</a></li> -->
                       </ul>
                     </li>
+                    
+                    <li class="ripple">
+                      <a class="tree-toggle nav-header">
+                        <span class="fa-area-chart fa"></span>Class Rooms
+                        <span class="fa-angle-right fa right-arrow text-right"></span>
+                      </a>
+                      <ul class="nav nav-list tree">
+                        <li><a href="#">4th standard - B</a></li>
+                        <li><a href="#">5th standard - A</a></li>
+                        <li><a href="#">6th standard - B</a></li>
+                        <li><a href="#">7th standard - C</a></li>
+                        <!-- <li><a href="chartjs.html">Create</a></li> -->
+                      </ul>
+                    </li>
                     <!-- <li class="ripple"><a class="tree-toggle nav-header">
                         <span class="fa fa-pencil-square"></span> Ui Elements  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
                       <ul class="nav nav-list tree">
