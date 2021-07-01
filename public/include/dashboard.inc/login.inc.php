@@ -20,7 +20,7 @@ if(isset($_POST['login-admin'])){
         exit();
 
     } else {
-        $sql = "SELECT * FROM admins WHERE emp_id=?";
+        $sql = "SELECT * FROM teachers WHERE emp_id=?";
         $stmt = mysqli_stmt_init($conn);
 
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -33,8 +33,8 @@ if(isset($_POST['login-admin'])){
             $result = mysqli_stmt_get_result($stmt);
 
             if($row = mysqli_fetch_assoc($result)){
-                $password_check = password_verify($password, $row['admin_password']);
-                // $password_check = $row['admin_password'];
+                $password_check = password_verify($password, $row['teacher_password']);
+                // $password_check = $row['teacher_password'];
 
                 if($password_check == false) {
                     
