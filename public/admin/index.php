@@ -36,16 +36,16 @@
                 <div class="panel">
                   <div class="panel-body">
                       <div class="col-md-6 col-sm-12">
-                        <h3 class="animated fadeInLeft">Gopalan International School</h3>
+                        <h3 class="animated fadeInLeft">Gopalan Schools Dashboard</h3>
                         <p class="animated fadeInDown"><span class="fa  fa-map-marker"></span> Whitefield,Bangalore</p>
 
-                        <ul class="nav navbar-nav">
+                        <!-- <ul class="nav navbar-nav">
                             <li><a href="" >Impedit</a></li>
                             <li><a href="" class="active">Virtute</a></li>
                             <li><a href="">Euismod</a></li>
                             <li><a href="">Explicar</a></li>
                             <li><a href="">Rebum</a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="col-md-6 col-sm-6 text-right" style="padding-left:10px;">
@@ -85,13 +85,13 @@
                                 <div class="col-md-6">
                                     <div class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Teachers</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                                          <h4 class="text-center">Number of Teachers</h4>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
+                                           <!-- <h4>
                                            <span class="icon-user icons icon text-right"></span>
-                                           </h4>
+                                           </h4> -->
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
@@ -102,27 +102,33 @@
                                           $row_num = mysqli_num_rows($result);
                                         ?>
                                         <h1><?php echo $row_num?></h1>
-                                        <p>Total Registered Teachers</p>
                                         <hr/>
+                                        <p>Total Registered Teachers</p>
                                       </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Students</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                                          <h4 class="text-center">Number of Students</h4>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
+                                           <!-- <h4>
                                            <span class="icon-basket-loaded icons icon text-right"></span>
-                                           </h4>
+                                           </h4> -->
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
-                                        <h1>51181,320</h1>
-                                        <p>New Orders</p>
+                                      <?php 
+                                          $query = "SELECT student_id FROM students";
+                                          $result = mysqli_query($conn, $query);
+
+                                          $row_num = mysqli_num_rows($result);
+                                        ?>
+                                        <h1><?php echo $row_num?></h1>
                                         <hr/>
+                                        <p>Total Registered Students</p>
                                       </div>
                                     </div>
                                 </div>
@@ -131,13 +137,13 @@
                                 <div class="col-md-6">
                                     <div class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Gopalan International School - Teachers</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-left padding-0">
+                                          <h4 class="text-center">Gopalan International School - Teachers</h4>
                                         </div>
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
+                                        <div class="col-md-4 col-sm-4 col-xs-4 text-right">
+                                           <!-- <h4>
                                            <span class="icon-user icons icon text-right"></span>
-                                           </h4>
+                                           </h4> -->
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
@@ -148,21 +154,21 @@
                                           $row_num = mysqli_num_rows($result);
                                         ?>
                                         <h1><?php echo $row_num?></h1>
-                                        <p>Total Registered Teachers</p>
                                         <hr/>
+                                        <p>Total Registered Teachers</p>
                                       </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="panel box-v1">
                                       <div class="panel-heading bg-white border-none">
-                                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                                          <h4 class="text-left">Gopalan National School - Teachers</h4>
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                                          <h4 class="text-center">Gopalan National School - Teachers</h4>
                                         </div>
                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                           <h4>
+                                           <!-- <h4>
                                            <span class="icon-basket-loaded icons icon text-right"></span>
-                                           </h4>
+                                           </h4> -->
                                         </div>
                                       </div>
                                       <div class="panel-body text-center">
@@ -173,377 +179,68 @@
                                           $row_num = mysqli_num_rows($result);
                                         ?>
                                         <h1><?php echo $row_num?></h1>
-                                        <p>New Orders</p>
                                         <hr/>
+                                        <p>New Orders</p>
                                       </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-md-12">
-                                
+
+                                <div class="col-md-6">
+                                    <div class="panel box-v1">
+                                      <div class="panel-heading bg-white border-none">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                                          <h4 class="text-center">Gopalan International School - Students</h4>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                           <!-- <h4>
+                                           <span class="icon-basket-loaded icons icon text-right"></span>
+                                           </h4> -->
+                                        </div>
+                                      </div>
+                                      <div class="panel-body text-center">
+                                      <?php 
+                                          $query = "SELECT student_id FROM students WHERE school_id = 1";
+                                          $result = mysqli_query($conn, $query);
+
+                                          $row_num = mysqli_num_rows($result);
+                                        ?>
+                                        <h1><?php echo $row_num?></h1>
+                                        <hr/>
+                                        <p>Current GIS Students</p>
+                                      </div>
+                                    </div>
+                                </div><div class="col-md-6">
+                                    <div class="panel box-v1">
+                                      <div class="panel-heading bg-white border-none">
+                                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                                          <h4 class="text-center">Gopalan National School - Students</h4>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                           <!-- <h4>
+                                           <span class="icon-basket-loaded icons icon text-right"></span>
+                                           </h4> -->
+                                        </div>
+                                      </div>
+                                      <div class="panel-body text-center">
+                                      <?php 
+                                          $query = "SELECT student_id FROM students WHERE school_id = 2";
+                                          $result = mysqli_query($conn, $query);
+
+                                          $row_num = mysqli_num_rows($result);
+                                        ?>
+                                        <h1><?php echo $row_num?></h1>
+                                        <hr/>
+                                        <p>New Orders</p>
+                                      </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="col-md-12 padding-0">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Akihiko Avaron</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12 padding-0">
-                              <div class="panel box-v3">
-                                <div class="panel-heading bg-white border-none">
-                                  <h4>Report</h4>
-                                </div>
-                                <div class="panel-body">
-                                    
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-folder icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Document Handling</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-pie-chart icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">UI/UX Development</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100" style="width: 19%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-energy icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Server Optimation</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                  <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-user icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">User Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-
-                                   <div class="media">
-                                    <div class="media-left">
-                                        <span class="icon-fire icons" style="font-size:2em;"></span>
-                                    </div>
-                                    <div class="media-body">
-                                      <h5 class="media-heading">Firewall Status</h5>
-                                        <div class="progress progress-mini">
-                                          <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%;">
-                                            <span class="sr-only">60% Complete</span>
-                                          </div>
-                                        </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="panel-footer bg-white border-none">
-                                    <center>
-                                      <input type="button" value="download as pdf" class="btn btn-danger box-shadow-none"/>
-                                    </center>
-                                </div>
-                              </div>
-                            </div>
-
-                            <div class="col-md-12 padding-0">
-                              <div class="panel bg-light-blue">
-                                <div class="panel-body text-white">
-                                   <p class="animated fadeInUp quote">Lorem ipsum dolor sit amet, consectetuer adipiscing elit Ut wisi..."</p>
-                                    <div class="col-md-12 padding-0">
-                                      <div class="text-left col-md-7 col-xs-12 col-sm-7 padding-0">
-                                        <span class="fa fa-twitter fa-2x"></span>
-                                        <span>22 May, 2015 via mobile</span>
-                                      </div>
-                                      <div style="padding-top:8px;" class="text-right col-md-5 col-xs-12 col-sm-5 padding-0">
-                                        <span class="fa fa-retweet"></span> 2000
-                                        <span class="fa fa-star"></span> 3000
-                                      </div>
-                                    </div>
-                                </div>
-                              </div>
-                            </div>
-                        </div>
+                        
                     </div>
 
                      <div class="col-md-12 card-wrap padding-0">
-                    <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 01</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                    
-
-                    <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 02</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                     <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 03</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                     <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 04</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                     <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 05</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                     <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 06</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                      <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 07</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
-                      <div class="col-md-3">
-                              <div class="panel box-v2">
-                                  <div class="panel-heading padding-0">
-                                    <img src="images/bg2.jpg" class="box-v2-cover img-responsive"/>
-                                    <div class="box-v2-detail">
-                                      <img src="asset/img/avatar.jpg" class="img-responsive"/>
-                                      <h4>Student 08</h4>
-                                    </div>
-                                  </div>
-                                  <div class="panel-body">
-                                    <div class="col-md-12 padding-0 text-center">
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.000</h3>
-                                          <p>Post</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-6 padding-0">
-                                          <h3>2.232</h3>
-                                          <p>share</p>
-                                      </div>
-                                      <div class="col-md-4 col-sm-4 col-xs-12 padding-0">
-                                          <h3>4.320</h3>
-                                          <p>photos</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              
-                    </div><!--End-->
+                   
                     </div><!--end-->
                    
     
