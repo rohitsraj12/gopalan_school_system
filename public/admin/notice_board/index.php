@@ -52,6 +52,7 @@
                           <th>Title</th>
                           <th>Notice Category</th>
                           <th>Publish Date</th>
+                          <th>file</th>
                           <th>Update</th>
                           <th>Delete</th>
                         </tr>
@@ -80,7 +81,8 @@
                               <td><?php echo $rows['notice_title'];?></td>
                               <td><?php echo $rows['category_name'];?></td>
                               <td><?php echo $rows['date'];?></td>
-                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['notice_id'];?>">update profile</a></td>
+                              <td><a href="<?php echo base_url() . $rows['notice_file'];?>" target="_blank">download</a></td>
+                              <td><a href="update_teacher_profile.php?id=<?php echo $rows['notice_id'];?>">update</a></td>
                               <td><a href="view_teacher_profile.php?id=<?php echo $rows['notice_id'];?>">Delete</a></td>
                             </tr>
 
