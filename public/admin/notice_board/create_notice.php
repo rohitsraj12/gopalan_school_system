@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-12 panel-body" style="padding-bottom:30px;">
               <div class="col-md-12">
-                <form class="cmxform" id="signupForm" method="POST" action="include/create_notice.inc.php">
+                <form class="cmxform" id="signupForm" method="POST" action="include/create_notice.inc.php"  enctype="multipart/form-data" >
                   <div class="col-md-6">
 
                     <div class="form-group form-animate-text" style="margin-top:40px !important;">
@@ -93,12 +93,13 @@
 
                     <div class="form-group form-animate-text" style="margin-top:40px !important;">
                         <div class="input-group fileupload-v1">
-                            <input type="file" name="manualfile" name="file" class="fileupload-v1-file hidden"/>
+                            <input type="file" name="file" class="fileupload-v1-file hidden"/>
                             <input type="text" class="form-control fileupload-v1-path" placeholder="File Path..." disabled>
                             <span class="input-group-btn">
                               <button class="btn fileupload-v1-btn" type="button"><i class="fa fa-folder"></i> Choose File</button>
                             </span>
                         </div><!-- /input-group -->
+                            <p>Only png, jpeg, jpg, docx, dotx, pdf, ppt, pptx files</p>
                     </div>
                     
 
