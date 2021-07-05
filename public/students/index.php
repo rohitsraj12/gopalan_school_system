@@ -13,14 +13,22 @@
     $id = $_SESSION['id'];
     // $id = 2;
 
-    echo $id;
-
+    // echo $id;
+    // $query = "SELECT * FROM students WHERE student_id='$id'";
     $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
+            JOIN class_rooms
+                ON class_rooms.class_id = students.class_id
+            JOIN class_sections
+                ON class_sections.section_id = students.section_id
              WHERE student_id='$id'";
     $result = mysqli_query($conn, $query);
 
+    if(!$result){
+        echo "failed";
+    } 
+
     $row = mysqli_fetch_assoc($result);
-    $full_name = $row['first_name'];
+    $full_name  = $row['first_name'];
 
     include('../../private/required/student/student_header.php');
 
@@ -100,7 +108,7 @@
                   </br>
 
                   <dt>Class and division</dt>
-                    <dd><?php echo  ?></dd>
+                    <dd><?php echo $row['class_name'] . " [" . $row['section_name'] . " - Section]";?></dd>
                   </br>
 
                 </dl>
@@ -150,8 +158,8 @@
              <div class="col-md-4">
                  <div class="panel box-v1">
                     <div class="panel-heading bg-white border-none">
-                        <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                            <h4 class="text-left">Reports</h4>
+                        <div class="col-md-12 col-sm-12 col-xs-12 text-center padding-0">
+                            <h4 class="text-left">Exam Reports</h4>
                         </div>
                         <!-- <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                             <h4>
@@ -162,7 +170,7 @@
                     <div class="panel-body text-center">
                         <h1>2</h1>
                         <hr/>
-                            <p>New Reports</p>
+                            <p>Semister</p>
                     </div>
                 </div>
              </div>
@@ -227,7 +235,7 @@
                  <div class="panel box-v1">
                     <div class="panel-heading bg-white border-none">
                         <div class="col-md-6 col-sm-6 col-xs-6 text-left padding-0">
-                            <h4 class="text-left">Marksheet</h4>
+                            <h4 class="text-left">Fee Details</h4>
                         </div>
                         <!-- <div class="col-md-6 col-sm-6 col-xs-6 text-right">
                             <h4>
