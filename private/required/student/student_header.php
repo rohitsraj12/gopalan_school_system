@@ -1,3 +1,11 @@
+<?php
+    $school     = $row['school_id']; 
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,8 +60,18 @@
           <div class="col-md-12 nav-wrapper">
             <div class="navbar-header" style="width:100%;">
               
-              <a href="<?php base_url();?>students/" class="navbar-brand"> 
-                <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
+              <a href="<?php base_url();?>students/" class="navbar-brand">
+              <?php
+                if($school == 1){
+                  ?>
+                    <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
+                  <?php
+                } else if($school == 2){
+                  ?>
+                    <img src="<?php base_url();?>img/brand/gns.svg" alt="user name" />
+                  <?php
+                }
+              ?>
               </a>
 
               <ul class="nav navbar-nav navbar-right user-nav">
