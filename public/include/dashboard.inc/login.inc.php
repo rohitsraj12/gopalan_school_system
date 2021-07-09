@@ -8,7 +8,7 @@
 
 ===========================================*/ 
 
-if(isset($_POST['login-admin'])){
+if(isset($_POST['login-teacher'])){
     require_once '../../../private/config/db_connection/db_connect.php';
 
     $user_name = $_POST['email'];
