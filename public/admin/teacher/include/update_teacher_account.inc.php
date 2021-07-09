@@ -49,7 +49,6 @@ if(isset($_POST['update_profile'])){
         echo "update failed";
     } else {
         // echo "record updated";
-
         header ("Location: ../view_teacher_profile.php?id=" . $emp_id . "&message=update_seccess");
     }
 
