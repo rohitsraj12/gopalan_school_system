@@ -18,6 +18,7 @@
 
     <!-- custom -->
     <script src="<?php base_url();?>js/main.js"></script>
+    <script src="<?php base_url();?>js/script.js"></script>
     
     <script type="text/javascript">
       (function(jQuery){
