@@ -79,7 +79,7 @@
                    <img src="<?php base_url();?>img/avatar.jpg" class="img-circle avatar" alt="user name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"/>
                    <ul class="dropdown-menu user-dropdown">
                      <li><a href="<?php base_url();?>admin/view_admin_profile.php"><span class="fa fa-user"></span> My Profile</a></li>
-                     <li><a href="<?php base_url();?>"><span class="fa fa-calendar"></span> My Calendar</a></li>
+                     <!-- <li><a href="<?php base_url();?>"><span class="fa fa-calendar"></span> My Calendar</a></li> -->
                      <li><a href="<?php base_url();?>logout.php">logout</a></li>
                      <li role="separator" class="divider"></li>
                      <li class="more">
@@ -91,8 +91,9 @@
                     </li>
                   </ul>
                 </li>
-                <li ><a href="#" class="opener-right-menu"><span class="fa fa-coffee"></span></a></li>
+                <!-- <li ><a href="#" class="opener-right-menu"><span class="fa fa-coffee"></span></a></li> -->
               </ul>
+              
             </div>
           </div>
         </nav>
@@ -100,145 +101,148 @@
 
       <!-- start:Left Menu -->
       <div id="left-menu">
-              <div class="sub-left-menu scroll">
-                <ul class="nav nav-list">
-                    <li><div class="left-bg"></div></li>
-                    <li class="time">
-                      <h1 class="animated fadeInLeft">21:00</h1>
-                      <p class="animated fadeInRight">Sat,October 1st 2029</p>
-                    </li>
-                    <li class="active ripple">
-                      <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Dashboard 
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                          <li><a href="<?php base_url()?>admin/">index</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-diamond fa"></span> Teachers
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>admin/teacher/">View Teacher list</a></li>
-                        <li><a href="<?php base_url();?>admin/teacher/create_new_teacher.php">Create Teacher Profile</a></li>
-                        <!-- <li><a href="boxed.html">Boxed</a></li> -->
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-diamond fa"></span> Students
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>admin/students/">View Student list</a></li>
-                        <li><a href="<?php base_url();?>admin/students/create_new_student.php">Create Student Profile</a></li>
-                        <!-- <li><a href="boxed.html">Boxed</a></li> -->
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span>Notice Board
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>admin/notice_board/index.php">View</a></li>
-                        <li><a href="<?php base_url();?>admin/notice_board/create_notice.php">Create</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span>Blogs
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>index.php">View</a></li>
-                        <li><a href="chartjs.html">Create</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple">
-                      <a class="tree-toggle nav-header">
-                        <span class="fa-area-chart fa"></span>Testimonial
-                        <span class="fa-angle-right fa right-arrow text-right"></span>
-                      </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="<?php base_url();?>index.php">View</a></li>
-                        <li><a href="chartjs.html">Create</a></li>
-                      </ul>
-                    </li>
-                    <!-- <li class="ripple"><a class="tree-toggle nav-header">
-                        <span class="fa fa-pencil-square"></span> Ui Elements  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="color.html">Color</a></li>
-                        <li><a href="weather.html">Weather</a></li>
-                        <li><a href="typography.html">Typography</a></li>
-                        <li><a href="icons.html">Icons</a></li>
-                        <li><a href="buttons.html">Buttons</a></li>
-                        <li><a href="media.html">Media</a></li>
-                        <li><a href="panels.html">Panels & Tabs</a></li>
-                        <li><a href="notifications.html">Notifications & Tooltip</a></li>
-                        <li><a href="badges.html">Badges & Label</a></li>
-                        <li><a href="progress.html">Progress</a></li>
-                        <li><a href="sliders.html">Sliders</a></li>
-                        <li><a href="timeline.html">Timeline</a></li>
-                        <li><a href="modal.html">Modals</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> Forms  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="formelement.html">Form Element</a></li>
-                        <li><a href="#">Wizard</a></li>
-                        <li><a href="#">File Upload</a></li>
-                        <li><a href="#">Text Editor</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-table"></span> Tables  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="datatables.html">Data Tables</a></li>
-                        <li><a href="handsontable.html">handsontable</a></li>
-                        <li><a href="tablestatic.html">Static</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a href="calendar.html"><span class="fa fa-calendar-o"></span>Calendar</a></li>
-                    <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-envelope-o"></span> Mail <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="mail-box.html">Inbox</a></li>
-                        <li><a href="compose-mail.html">Compose Mail</a></li>
-                        <li><a href="view-mail.html">View Mail</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-file-code-o"></span> Pages  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="forgotpass.html">Forgot Password</a></li>
-                        <li><a href="login.html">SignIn</a></li>
-                        <li><a href="reg.html">SignUp</a></li>
-                        <li><a href="article-v1.html">Article v1</a></li>
-                        <li><a href="search-v1.html">Search Result v1</a></li>
-                        <li><a href="productgrid.html">Product Grid</a></li>
-                        <li><a href="profile-v1.html">Profile v1</a></li>
-                        <li><a href="invoice-v1.html">Invoice v1</a></li>
-                      </ul>
-                    </li>
-                    <li class="ripple"><a class="tree-toggle nav-header"><span class="fa "></span> MultiLevel  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
-                      <ul class="nav nav-list tree">
-                        <li><a href="view-mail.html">Level 1</a></li>
-                        <li><a href="view-mail.html">Level 1</a></li>
-                        <li class="ripple">
-                          <a class="sub-tree-toggle nav-header">
-                            <span class="fa fa-envelope-o"></span> Level 1
-                            <span class="fa-angle-right fa right-arrow text-right"></span>
-                          </a>
-                          <ul class="nav nav-list sub-tree">
-                            <li><a href="mail-box.html">Level 2</a></li>
-                            <li><a href="compose-mail.html">Level 2</a></li>
-                            <li><a href="view-mail.html">Level 2</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </li> -->
-                    <li><a href="<?php base_url();?>logout.php">Logout</a></li>
+        <div class="sub-left-menu scroll">
+          <ul class="nav nav-list">
+            <li><div class="left-bg"></div></li>
+            <li class="time">
+              <h1 class="animated fadeInLeft">21:00</h1>
+              <p class="animated fadeInRight">Sat,October 1st 2029</p>
+            </li>
+            <!-- <li class="active ripple">
+              <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Dashboard 
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                  <li><a href="<?php base_url()?>admin/">index</a></li>
+              </ul>
+            </li> -->
+            <li  class="active ripple"><a href="<?php base_url()?>admin/"><span class="fa-home fa"></span>Dashboard</a></li>
+
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-diamond fa"></span> Teachers
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php base_url();?>admin/teacher/">View Teacher list</a></li>
+                <li><a href="<?php base_url();?>admin/teacher/create_new_teacher.php">Create Teacher Profile</a></li>
+                <!-- <li><a href="boxed.html">Boxed</a></li> -->
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-diamond fa"></span> Students
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php base_url();?>admin/students/">View Student list</a></li>
+                <li><a href="<?php base_url();?>admin/students/create_new_student.php">Create Student Profile</a></li>
+                <!-- <li><a href="boxed.html">Boxed</a></li> -->
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-area-chart fa"></span>Notice Board
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php base_url();?>admin/notice_board/index.php">View</a></li>
+                <li><a href="<?php base_url();?>admin/notice_board/create_notice.php">Create</a></li>
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-area-chart fa"></span>Leads
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php base_url();?>admin/leads/index.php">All</a></li>
+                <li><a href="<?php base_url();?>admin/leads/index.php">GIS</a></li>
+                <li><a href="<?php base_url();?>admin/leads/index.php">GNS</a></li>
+              </ul>
+            </li>
+            <li class="ripple">
+              <a class="tree-toggle nav-header">
+                <span class="fa-area-chart fa"></span>Testimonial
+                <span class="fa-angle-right fa right-arrow text-right"></span>
+              </a>
+              <ul class="nav nav-list tree">
+                <li><a href="<?php base_url();?>index.php">View</a></li>
+                <li><a href="chartjs.html">Create</a></li>
+              </ul>
+            </li>
+            <!-- <li class="ripple"><a class="tree-toggle nav-header">
+                <span class="fa fa-pencil-square"></span> Ui Elements  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="color.html">Color</a></li>
+                <li><a href="weather.html">Weather</a></li>
+                <li><a href="typography.html">Typography</a></li>
+                <li><a href="icons.html">Icons</a></li>
+                <li><a href="buttons.html">Buttons</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="panels.html">Panels & Tabs</a></li>
+                <li><a href="notifications.html">Notifications & Tooltip</a></li>
+                <li><a href="badges.html">Badges & Label</a></li>
+                <li><a href="progress.html">Progress</a></li>
+                <li><a href="sliders.html">Sliders</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="modal.html">Modals</a></li>
+              </ul>
+            </li>
+            <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-check-square-o"></span> Forms  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="formelement.html">Form Element</a></li>
+                <li><a href="#">Wizard</a></li>
+                <li><a href="#">File Upload</a></li>
+                <li><a href="#">Text Editor</a></li>
+              </ul>
+            </li>
+            <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-table"></span> Tables  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="datatables.html">Data Tables</a></li>
+                <li><a href="handsontable.html">handsontable</a></li>
+                <li><a href="tablestatic.html">Static</a></li>
+              </ul>
+            </li>
+            <li class="ripple"><a href="calendar.html"><span class="fa fa-calendar-o"></span>Calendar</a></li>
+            <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-envelope-o"></span> Mail <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="mail-box.html">Inbox</a></li>
+                <li><a href="compose-mail.html">Compose Mail</a></li>
+                <li><a href="view-mail.html">View Mail</a></li>
+              </ul>
+            </li>
+            <li class="ripple"><a class="tree-toggle nav-header"><span class="fa fa-file-code-o"></span> Pages  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="forgotpass.html">Forgot Password</a></li>
+                <li><a href="login.html">SignIn</a></li>
+                <li><a href="reg.html">SignUp</a></li>
+                <li><a href="article-v1.html">Article v1</a></li>
+                <li><a href="search-v1.html">Search Result v1</a></li>
+                <li><a href="productgrid.html">Product Grid</a></li>
+                <li><a href="profile-v1.html">Profile v1</a></li>
+                <li><a href="invoice-v1.html">Invoice v1</a></li>
+              </ul>
+            </li>
+            <li class="ripple"><a class="tree-toggle nav-header"><span class="fa "></span> MultiLevel  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
+              <ul class="nav nav-list tree">
+                <li><a href="view-mail.html">Level 1</a></li>
+                <li><a href="view-mail.html">Level 1</a></li>
+                <li class="ripple">
+                  <a class="sub-tree-toggle nav-header">
+                    <span class="fa fa-envelope-o"></span> Level 1
+                    <span class="fa-angle-right fa right-arrow text-right"></span>
+                  </a>
+                  <ul class="nav nav-list sub-tree">
+                    <li><a href="mail-box.html">Level 2</a></li>
+                    <li><a href="compose-mail.html">Level 2</a></li>
+                    <li><a href="view-mail.html">Level 2</a></li>
                   </ul>
-                </div>
-            </div>
-          <!-- end: Left Menu -->
+                </li>
+              </ul>
+            </li> -->
+            <li><a href="<?php base_url();?>logout.php">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    <!-- end: Left Menu -->
