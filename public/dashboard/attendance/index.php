@@ -43,51 +43,46 @@
                     <div class="panel-heading"><h3>Class Rooms</h3></div>
                     <div class="panel-body">
                       <div class="responsive-table">
-                      <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
-                      <thead>
-                        <tr>
-                          <th>Class Rooms</th>
-                          <th>Number of Students</th>
-                          <th>Take Attendance</th>
-                          <!-- <th></th> -->
-                          <th>Notice Board</th>
-                          <th>Test Anouncement</th>
-                          <th>Homework</th>
-                        </tr>
-                      </thead>
-                        <tbody>
-                        <?php 
-                            $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
-                            JOIN class_rooms
-                                ON class_rooms.class_id = students.class_id
-                            JOIN class_sections
-                                ON class_sections.section_id = students.section_id";
-                            
-                            $result = mysqli_query($conn, $query);
-
-                            // $row_num = mysqli_num_rows($result);
-
-                            while($rows = mysqli_fetch_assoc($result)){
-                          ?>
-                          
+                        <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
+                          <thead>
                             <tr>
-                              <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
-                              <td><?php echo $rows['student_user_id'];?></td>
-                              <td><?php echo $rows['class_name']. " [section - " . $rows['section_name'] . "]";
-                                // if($rows['position_name'] == "Class Teacher"){
-                                //    echo " - Grade" . $rows['class_name']. " [section - " . $rows['section_name'] . "]";
-                                // }
-                              
-                              ?></td>
-                              <!-- <td><?php echo $rows['student_user_id'];?></td> -->
-                              <td><a href="update_students_profile.php?id=<?php echo $rows['student_user_id'];?>">update profile</a></td>
-                              <td><a href="view_student_profile.php?id=<?php echo $rows['student_user_id'];?>">view details</a></td>
+                              <th>Class Rooms</th>
+                              <th>Number of Students</th>
+                              <th>Take Attendance</th>
+                              <!-- <th></th> -->
+                              <th>Notice Board</th>
+                              <th>Test Anouncement</th>
+                              <th>Homework</th>
                             </tr>
+                          </thead>
+                          <tbody>
+                          <?php 
+                              $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
+                              JOIN class_rooms
+                                  ON class_rooms.class_id = students.class_id
+                              JOIN class_sections
+                                  ON class_sections.section_id = students.section_id";
+                              
+                              $result = mysqli_query($conn, $query);
 
-                          <?php
-                            }
-                          ?>
-                        </tbody>
+                              // $row_num = mysqli_num_rows($result);
+
+                              while($rows = mysqli_fetch_assoc($result)){
+                            ?>
+                            
+                              <tr>
+                                <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
+                                <td><?php echo $rows['student_user_id'];?></td>
+                                <td><a class="btn btn-round btn-primary" href="<?php base_url();?>dashboard/attendance/take_attendance.php">take attendance</a></td>
+                                <!-- <td><?php echo $rows['student_user_id'];?></td> -->
+                                <td><a href="update_students_profile.php?id=<?php echo $rows['student_user_id'];?>">update profile</a></td>
+                                <td><a href="view_student_profile.php?id=<?php echo $rows['student_user_id'];?>">view details</a></td>
+                              </tr>
+
+                            <?php
+                              }
+                            ?>
+                          </tbody>
                         </table>
                       </div>
                   </div>
