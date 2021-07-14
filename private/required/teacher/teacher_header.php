@@ -108,7 +108,7 @@
                       <p class="animated fadeInRight">Sat,October 1st 2029</p>
                     </li>
                     <li><a href="<?php base_url()?>dashboard/"><span class="fa-home fa"></span> Dashboard</a></li>
-                    <li><a href="<?php base_url()?>dashboard/attendance/"><span class="fa-eraser fa"></span> Attendance</a></li>
+                    <li><a href="<?php base_url()?>dashboard/attendance/index.php"><span class="fa-eraser fa"></span> Attendance</a></li>
                     <!-- <li class="active ripple">
                       <a class="tree-toggle nav-header"><span class="fa-home fa"></span> Dashboard 
                         <span class="fa-angle-right fa right-arrow text-right"></span>
