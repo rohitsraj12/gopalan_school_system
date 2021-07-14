@@ -4,20 +4,18 @@
     if(!isset($_SESSION["emp_id"])){
         header('location: ../../teacher_login.php');
     }
-
+    $id = $_SESSION['emp_id'];
     $page_title = "Take Attendance";
 
     include('../../../private/config/db_connection/db_connect.php');
-    // include('include/school_name.php');
     include('../../../private/config/config.php');
-
-    $id = $_SESSION['emp_id'];
 
     $query = "SELECT * FROM teachers WHERE emp_id='$id'";
     $result = mysqli_query($conn, $query);
 
     $row = mysqli_fetch_assoc($result);
-    echo $row['first_name'];
+    // echo $row['first_name'];
+    $teacher_id = $row['teacher_id'];
 
     include('../../../private/required/teacher/teacher_header.php');
 ?>
@@ -47,7 +45,7 @@
                           <thead>
                             <tr>
                               <th>Class Rooms</th>
-                              <th>Number of Students</th>
+                              <th>Subject</th>
                               <th>Take Attendance</th>
                               <!-- <th></th> -->
                               <th>Notice Board</th>
@@ -57,11 +55,23 @@
                           </thead>
                           <tbody>
                           <?php 
-                              $query = "SELECT students.*, class_rooms.*, class_sections.* FROM students
+
+                              $query  = "SELECT classes.*, class_rooms.*, class_sections.*, subjects.* FROM classes
+
                               JOIN class_rooms
-                                  ON class_rooms.class_id = students.class_id
+                                ON 
+                                  class_rooms.class_id = classes.class_room_id
+                                  
                               JOIN class_sections
-                                  ON class_sections.section_id = students.section_id";
+                                ON 
+                                  class_sections.section_id = classes.class_section_id
+                                  
+                              JOIN subjects
+                                ON 
+                                  subjects.subject_id = classes.subject_id
+                                  
+                            WHERE
+                              classes.teacher_id = $teacher_id";
                               
                               $result = mysqli_query($conn, $query);
 
@@ -71,12 +81,12 @@
                             ?>
                             
                               <tr>
-                                <td><?php echo $rows['first_name'] . " " . $rows['last_name'];?></td>
-                                <td><?php echo $rows['student_user_id'];?></td>
-                                <td><a class="btn btn-round btn-primary" href="<?php base_url();?>dashboard/attendance/take_attendance.php">take attendance</a></td>
+                                <td><?php echo $rows['class_name'] . " - " . $rows['section_name'];?></td>
+                                <td><?php echo $rows['subject_name'];?></td>
+                                <td><a class="btn btn-round btn-primary" href="<?php base_url();?>dashboard/attendance/take_attendance.php?class=<?php echo $rows['class_id'];?>&section=<?php echo $rows['section_id'];?>">take attendance</a></td>
                                 <!-- <td><?php echo $rows['student_user_id'];?></td> -->
-                                <td><a href="update_students_profile.php?id=<?php echo $rows['student_user_id'];?>">update profile</a></td>
-                                <td><a href="view_student_profile.php?id=<?php echo $rows['student_user_id'];?>">view details</a></td>
+                                <td><a href="update_students_profile.php?id=<?php // echo $rows['student_user_id'];?>">update profile</a></td>
+                                <td><a href="view_student_profile.php?id=<?php // echo $rows['student_user_id'];?>">view details</a></td>
                               </tr>
 
                             <?php
