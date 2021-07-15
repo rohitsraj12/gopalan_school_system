@@ -107,7 +107,7 @@
                             
 
                             <p>
-                                <button class="btn btn-danger box-shadow-none" href="take_attendance.php"  data-toggle="modal" data-target="#myModal">ceate new test</button>
+                                <button class="btn btn-danger box-shadow-none"  data-toggle="modal" data-target="#myModal">ceate new test</button>
                             </p>
                         </div>
                     </div>
