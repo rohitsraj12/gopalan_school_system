@@ -16,6 +16,8 @@
     $row = mysqli_fetch_assoc($result);
     // echo $row['first_name'];
     $teacher_id = $row['teacher_id'];
+    $teacher_user_id = $row['emp_id'];
+    $school_id = $row['school_id'];
 
     include('../../../private/required/teacher/teacher_header.php');
 ?>
@@ -56,6 +58,9 @@
                           <tbody>
                           <?php 
 
+// $query  = "SELECT * FROM classes";
+
+
                               $query  = "SELECT classes.*, class_rooms.*, class_sections.*, subjects.* FROM classes
 
                               JOIN class_rooms
@@ -70,8 +75,7 @@
                                 ON 
                                   subjects.subject_id = classes.subject_id
                                   
-                            WHERE
-                              classes.teacher_id = $teacher_id";
+                              WHERE teacher_user_id = '$teacher_user_id' AND school_id = $school_id";
                               
                               $result = mysqli_query($conn, $query);
 
@@ -83,7 +87,7 @@
                               <tr>
                                 <td><?php echo $rows['class_name'] . " - " . $rows['section_name'];?></td>
                                 <td><?php echo $rows['subject_name'];?></td>
-                                <td><a class="btn btn-round btn-primary" href="<?php base_url();?>dashboard/attendance/take_attendance.php?class=<?php echo $rows['class_id'];?>&section=<?php echo $rows['section_id'];?>">take attendance</a></td>
+                                <td><a class="btn btn-round btn-primary" href="<?php base_url();?>dashboard/attendance/take_attendance.php?class=<?php echo $rows['class_room_id'];?>&section=<?php echo $rows['section_id'];?>">take attendance</a></td>
                                 <!-- <td><?php echo $rows['student_user_id'];?></td> -->
                                 <td><a href="update_students_profile.php?id=<?php // echo $rows['student_user_id'];?>">update profile</a></td>
                                 <td><a href="view_student_profile.php?id=<?php // echo $rows['student_user_id'];?>">view details</a></td>
