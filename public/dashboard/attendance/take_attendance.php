@@ -14,6 +14,10 @@
     $result = mysqli_query($conn, $query);
     $row = mysqli_fetch_assoc($result);
 
+    //capture teacher data
+    $school_id = $row['school_id'];
+
+
     include('../../../private/required/teacher/teacher_header.php');
 
     // capture from url
@@ -64,7 +68,7 @@
                                     <tbody>
                                         <?php
 
-                                            $student_query = "SELECT * FROM students WHERE class_id='$std' AND section_id = '$div'";
+                                            $student_query = "SELECT * FROM students WHERE class_id='$std' AND section_id = '$div' AND school_id = $school_id";
                                             $student_result = mysqli_query($conn, $student_query);
 
                                             while($rows = mysqli_fetch_assoc($student_result)){
