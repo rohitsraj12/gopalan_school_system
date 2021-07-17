@@ -38,3 +38,11 @@ a:hover {
 .absent::before {
     background-color: #b9375e;
 }
+
+/* update CRM */
+.update__data span{
+    color: #e44724;
+    font-weight: 400;
+    border-bottom: 1px dotted #e44724;
+    cursor: pointer;
+}
