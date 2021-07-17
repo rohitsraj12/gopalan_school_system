@@ -50,62 +50,49 @@
                     <table id="datatables-example" class="table table-striped table-bordered" width="100%" cellspacing="0">
                       <thead>
                         <tr>
-                          <th>Date</th>
+                          <th>Enquiry Id</th>
+                          <th>Subject</th>
+                          <th>Updated Date</th>
                           <th>Name</th>
-                          <th>Email</th>
-                          <th>Phone Number</th>
-                          <th>Source Name</th>
-                          <th>Details</th>
+                          <th>Created Date</th>
+                          <th>School</th>
+                          <th>Source</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
 
                       <tbody>
                         <?php 
                           // fetch all teachers record from database and show on table
-                          $query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
+                          $query = "SELECT leads.*, schools.*, enquiry_sources.*, enquiry_status.* FROM leads
                           JOIN schools
-                              ON schools.school_id = teachers.school_id
-                          JOIN teacher_positions
-                              ON teacher_positions.position_id = teachers.position_id
-                          JOIN class_rooms
-                              ON class_rooms.class_id = teachers.class_id
-                          JOIN class_sections
-                              ON class_sections.section_id = teachers.section_id";
+                            ON schools.school_id = leads.school_id
+                          JOIN enquiry_sources
+                            ON enquiry_sources.source_id = leads.source_id
+                          JOIN enquiry_status
+                            ON enquiry_status.status_id = leads.status_id
+                          ";
                           
                           $result = mysqli_query($conn, $query);
 
-                        //   while($rows = mysqli_fetch_assoc($result)){
-                        ?>
+                          while($rows = mysqli_fetch_assoc($result)){
+                         ?>
                         
                           <tr>
-                            <td>10/07/2021</td>
-                            <td>Shreya</td>
-                            <td>sreya@gmai.com</td>
-                            <td>923423348</td>
-                            <td>GIS Contact form</td>
-                            <td><a href="">view details</a></td>
+                            <td><?php echo $rows['lead_id']; ?></td>
+                            <td><a href="<?php base_url()?>admin/leads/view_detail.php?id=<?php echo $rows['lead_id']; ?>"><?php echo $rows['subject']; ?></a></td>
+                            <td><?php echo $rows['date']; ?></td>
+                            <td><?php echo $rows['first_name']; ?></td>
+                            <td><?php //echo $rows['phone']; ?></td>
+                            <td><?php echo $rows['school_name']; ?></td>
+                            <td><?php echo $rows['source_name']; ?></td>
+                            <td><?php echo $rows['status_name']; ?></td>
+                            <td></td>
+                            <td><a href=""></a></td>
                           </tr>
                         
-                        <tr>
-                          <td>11/07/2021</td>
-                          <td>harleen Singh</td>
-                          <td>harleen@gmai.com</td>
-                          <td>123234228</td>
-                          <td>GNS Landing Page</td>
-                          <td><a href="">view details</a></td>
-                        </tr>
-                        
-                        <tr>
-                          <td>9/07/2021</td>
-                          <td>Karan</td>
-                          <td>karan@gmai.com</td>
-                          <td>212232348</td>
-                          <td>GIS Landinga Page</td>
-                          <td><a href="">view details</a></td>
-                        </tr>
-
                         <?php
-                        //   }
+                          }
                         ?>
                       </tbody>
                     </table>
@@ -195,50 +182,50 @@
                     <table id="datatables-example" class="other-table table table-striped table-bordered" width="100%" cellspacing="0">
                       <thead>
                         <tr>
+                          <th>Enquiry Id</th>
+                          <th>Subject</th>
+                          <th>Updated Date</th>
                           <th>Name</th>
-                          <th>School Name</th>
-                          <th>Class Teacher</th>
-                          <th>Emp Id</th>
-                          <th>Edit Profile</th>
-                          <th>View Details</th>
+                          <th>Created Date</th>
+                          <th>School</th>
+                          <th>Source</th>
+                          <th>Status</th>
                         </tr>
                       </thead>
 
                       <tbody>
                         <?php 
                           // fetch all teachers record from database and show on table
-                          $query = "SELECT teachers.*, schools.*, teacher_positions.*, class_rooms.*, class_sections.* FROM teachers
+                          $query = "SELECT leads.*, schools.*, enquiry_sources.*, enquiry_status.* FROM leads
                           JOIN schools
-                              ON schools.school_id = teachers.school_id
-                          JOIN teacher_positions
-                              ON teacher_positions.position_id = teachers.position_id
-                          JOIN class_rooms
-                              ON class_rooms.class_id = teachers.class_id
-                          JOIN class_sections
-                              ON class_sections.section_id = teachers.section_id 
-                          WHERE teachers.school_id = 2
+                            ON schools.school_id = leads.school_id
+                          JOIN enquiry_sources
+                            ON enquiry_sources.source_id = leads.source_id
+                          JOIN enquiry_status
+                            ON enquiry_status.status_id = leads.status_id
                           ";
                           
                           $result = mysqli_query($conn, $query);
 
-                        //   while($rows = mysqli_fetch_assoc($result)){
+                          while($rows = mysqli_fetch_assoc($result)){
                          ?>
                         
                         
-                        <tr>
-                          <td>11/07/2021</td>
-                          <td>harleen Singh</td>
-                          <td>harleen@gmai.com</td>
-                          <td>123234228</td>
-                          <td>GNS Landing Page</td>
-                          <td><a href="">view details</a></td>
-                        </tr>
+                          <tr>
+                            <td><?php echo $rows['lead_id'] ?></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><a href=""></a></td>
+                          </tr>
                         
                        
 
 
                         <?php
-                        //   }
+                          }
                         ?>
                       </tbody>
                     </table>
