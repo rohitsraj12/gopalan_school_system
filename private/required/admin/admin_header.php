@@ -33,6 +33,7 @@
 
 
 	<link href="<?php base_url()?>css/style.css" rel="stylesheet">
+	<link href="<?php base_url()?>css/updated_style.css" rel="stylesheet">
 	<!-- end: Css -->
 
 	<link rel="shortcut icon" href="<?php base_url()?>img/logomi.png">
