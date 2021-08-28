@@ -119,6 +119,7 @@
             </li> -->
             <li  class="active ripple"><a href="<?php base_url()?>admin/"><span class="fa-home fa"></span>Dashboard</a></li>
 
+            <!-- teacher section -->
             <li class="ripple">
               <a class="tree-toggle nav-header">
                 <span class="fa-diamond fa"></span> Teachers
@@ -130,6 +131,9 @@
                 <!-- <li><a href="boxed.html">Boxed</a></li> -->
               </ul>
             </li>
+            <!-- end teacher section -->
+
+            <!-- student section -->
             <li class="ripple">
               <a class="tree-toggle nav-header">
                 <span class="fa-diamond fa"></span> Students
@@ -141,6 +145,9 @@
                 <!-- <li><a href="boxed.html">Boxed</a></li> -->
               </ul>
             </li>
+            <!-- end student section -->
+
+            <!-- Notice Board -->
             <li class="ripple">
               <a class="tree-toggle nav-header">
                 <span class="fa-area-chart fa"></span>Notice Board
@@ -151,17 +158,46 @@
                 <li><a href="<?php base_url();?>admin/notice_board/create_notice.php">Create</a></li>
               </ul>
             </li>
-            <li class="ripple">
-              <a class="tree-toggle nav-header">
-                <span class="fa-area-chart fa"></span>Leads
-                <span class="fa-angle-right fa right-arrow text-right"></span>
-              </a>
-              <ul class="nav nav-list tree">
-                <li><a href="<?php base_url();?>admin/leads/index.php">All</a></li>
-                <li><a href="<?php base_url();?>admin/leads/index.php">GIS</a></li>
-                <li><a href="<?php base_url();?>admin/leads/index.php">GNS</a></li>
-              </ul>
+            <!-- end notice board -->
+
+            <!-- Leads section -->
+            <li class="nav__head">
+              Leads
             </li>
+
+            <li class="nav nav-list">
+              <li class="ripple">
+                <a class="tree-toggle nav-header">
+                  GIS
+                  <span class="fa-angle-right fa right-arrow text-right"></span>
+                </a>
+                <ul class="nav nav-list tree">
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Initial</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Follow Up</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Site Visit</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Adminssion Follow Up</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Booking Done</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Junk</a></li>
+                </ul>
+              </li>
+              <li class="ripple">
+                <a class="tree-toggle nav-header">
+                  GNS
+                  <span class="fa-angle-right fa right-arrow text-right"></span>
+                </a>
+                <ul class="nav nav-list tree">
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Initial</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Follow Up</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Site Visit</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Adminssion Follow Up</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Booking Done</a></li>
+                  <li><a href="<?php base_url();?>admin/leads/index.php">Junk</a></li>
+                </ul>
+              </li>
+            </li>
+            <!-- end leads section -->
+
+            <!-- testimonial section -->
             <li class="ripple">
               <a class="tree-toggle nav-header">
                 <span class="fa-area-chart fa"></span>Testimonial
@@ -172,6 +208,11 @@
                 <li><a href="chartjs.html">Create</a></li>
               </ul>
             </li>
+            <!-- end testimonial section -->
+
+
+
+
             <!-- <li class="ripple"><a class="tree-toggle nav-header">
                 <span class="fa fa-pencil-square"></span> Ui Elements  <span class="fa-angle-right fa right-arrow text-right"></span> </a>
               <ul class="nav nav-list tree">
