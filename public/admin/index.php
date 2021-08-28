@@ -29,7 +29,6 @@
           <p class="animated fadeInDown">
             <!-- <span class="fa  fa-map-marker"></span>  -->
             <!-- Whitefield,Bangalore -->
-
             Admin
           </p>
 
