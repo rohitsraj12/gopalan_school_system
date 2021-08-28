@@ -46,3 +46,10 @@ a:hover {
     border-bottom: 1px dotted #e44724;
     cursor: pointer;
 }
+
+.nav__head {
+    padding-left: 20px;
+    background-color: #54a7ff;
+    font-size: 20px;
+    color: #fff;
+}
