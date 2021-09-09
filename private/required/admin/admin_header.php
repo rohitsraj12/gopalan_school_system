@@ -57,9 +57,10 @@
                 <span class="middle"></span>
                 <span class="bottom"></span>
               </div>
-                <a href="index.html" class="navbar-brand"> 
-                 <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
-                </a>
+
+              <a href="index.html" class="navbar-brand"> 
+                <img src="<?php base_url();?>img/gis-logo.svg" alt="user name" />
+              </a>
 
               <ul class="nav navbar-nav search-nav">
                 <li>
