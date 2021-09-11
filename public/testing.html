@@ -16,8 +16,8 @@
                 <th>date</th>
                 <th>name</th>
                 <th>email</th>
+                <th>emp ID</th>
                 <th>phone</th>
-                <th>action</th>
             </tr>
         </thead>
         <tbody id="load-table">
@@ -45,7 +45,7 @@
                         // console.log(data);
 
                             $.each(data, function(key, value){
-                                $("#load-table").append("<tr><td>" + value.capture_date + "</td><td>" + value.first_name + "</td><td>" + value.email + "</td><td>" + value.phone + "</td><td>" + value.phone + "</td></tr>");
+                                $("#load-table").append("<tr><td>" + value.admin_id + "</td><td>" + value.first_name + "</td><td>" + value.emp_email + "</td><td>" + value.emp_id + "</td><td>" + value.phone + "</td></tr>");
                             })
                         }
                     }
