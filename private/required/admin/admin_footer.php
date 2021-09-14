@@ -4,7 +4,6 @@
     <script src="<?php base_url();?>js/jquery.ui.min.js"></script>
     <script src="<?php base_url();?>js/bootstrap.min.js"></script>
     <script src="<?php base_url();?>js/plugins/fullcalendar.min.js"></script>
-   
     
     <!-- plugins -->
     <script src="<?php base_url();?>js/plugins/moment.min.js"></script>
@@ -14,7 +13,6 @@
     <script src="<?php base_url();?>js/plugins/maps/jquery.vmap.world.js"></script>
     <script src="<?php base_url();?>js/plugins/jquery.vmap.sampledata.js"></script>
     <script src="<?php base_url();?>js/plugins/chart.min.js"></script>
-
 
     <!-- custom -->
     <script src="<?php base_url();?>js/main.js"></script>
@@ -210,11 +208,8 @@
         
         //  end:  Chart =============
 
-       
-
         // start: Maps============
-
-          jQuery('.maps').vectorMap({
+        jQuery('.maps').vectorMap({
             map: 'world_en',
             backgroundColor: null,
             color: '#fff',
@@ -271,13 +266,6 @@
         });
     </script>
     <!-- end: Javascript -->
-
-
-
-
-  
-
-
 
 <!-- start plugins for table -->
     <script src="<?php base_url();?>js/plugins/moment.min.js"></script>
