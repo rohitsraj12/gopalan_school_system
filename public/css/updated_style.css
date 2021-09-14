@@ -21,7 +21,6 @@ a:hover {
     margin: 0 10px;
 }
 
-
 .attend::before {
     display: inline-block;
     content: "";
@@ -33,7 +32,6 @@ a:hover {
 .present::before {
     background-color: #5465ff;
 }
-
 
 .absent::before {
     background-color: #b9375e;
