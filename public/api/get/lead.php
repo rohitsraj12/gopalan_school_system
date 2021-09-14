@@ -3,6 +3,8 @@
 
 header('Content-Type: application/json');
 header('Acess-Control-Allow-Origin: *');
+// header('Acess-Control-Allow-Origin: https://gopalancoworks.com/');
+
 
 // fetch teachers on api
 
@@ -18,5 +20,7 @@ if(mysqli_num_rows($result) > 0){
     echo json_encode($output);
 
 } else {
+
     echo json_encode(array('message' => 'No record found', 'status' => false));
+    
 }
